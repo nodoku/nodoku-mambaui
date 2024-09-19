@@ -1,0 +1,23 @@
+{
+  "namespace": "NodokuFloatUi",
+  "components": {
+    "floatui/hero-one": {
+      "schemaFile": "./dist/schemas/components/hero-one/visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/hero-one/default-theme.yml",
+      "implementation": "HeroOne",
+      "numBlocks": 1
+    },
+    "floatui/hero-left-text": {
+      "schemaFile": "./dist/schemas/components/hero-left-text/visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/hero-left-text/default-theme.yml",
+      "implementation": "HeroLeftText",
+      "numBlocks": 1
+    },
+    "floatui/card": {
+      "schemaFile": "./dist/schemas/components/card/visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/card/default-theme.yml",
+      "implementation": "Card",
+      "numBlocks": 1
+    }
+  }
+}
