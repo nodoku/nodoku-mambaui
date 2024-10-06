@@ -6,14 +6,16 @@ export declare class HeroLeftTextTheme {
     className?: string;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
-    rightImageStyle?: ThemeStyle;
+    imageContainerStyle?: ThemeStyle;
+    imageStyle?: ThemeStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
+    contentContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ThemeStyle;
+    footerContainerStyle?: ThemeStyle;
     footerStyle?: ThemeStyle;
-    footerButtonStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
     static defaultTheme: HeroLeftTextTheme;

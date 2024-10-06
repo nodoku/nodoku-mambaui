@@ -6,13 +6,14 @@ import ListCompTheme = NodokuComponents.ListCompTheme;
 export declare class HeroOneTheme {
     className?: string;
     containerStyle?: ThemeStyle;
+    innerContainerStyle?: ThemeStyle;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ExtendedThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ThemeStyle;
+    footerContainerStyle?: ThemeStyle;
     footerStyle?: ThemeStyle;
-    footerButtonStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
     static defaultTheme: HeroOneTheme;

@@ -1,22 +1,46 @@
 {
-  "namespace": "NodokuFloatUi",
+  "namespace": "NodokuMambaUi",
   "components": {
-    "floatui/hero-one": {
+    "mambaui/hero-one": {
       "schemaFile": "./dist/schemas/components/hero-one/visual-schema.json",
       "defaultThemeFile": "./dist/schemas/components/hero-one/default-theme.yml",
       "implementation": "HeroOne",
       "numBlocks": 1
     },
-    "floatui/hero-left-text": {
+    "mambaui/hero-two": {
+      "schemaFile": "./dist/schemas/components/hero-two/visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/hero-two/default-theme.yml",
+      "implementation": "HeroTwo",
+      "numBlocks": 1
+    },
+    "mambaui/hero-left-text": {
       "schemaFile": "./dist/schemas/components/hero-left-text/visual-schema.json",
       "defaultThemeFile": "./dist/schemas/components/hero-left-text/default-theme.yml",
       "implementation": "HeroLeftText",
       "numBlocks": 1
     },
-    "floatui/card": {
+    "mambaui/hero-right-text": {
+      "schemaFile": "./dist/schemas/components/hero-right-text/visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/hero-right-text/default-theme.yml",
+      "implementation": "HeroRightText",
+      "numBlocks": 1
+    },
+    "mambaui/card": {
       "schemaFile": "./dist/schemas/components/card/visual-schema.json",
       "defaultThemeFile": "./dist/schemas/components/card/default-theme.yml",
       "implementation": "Card",
+      "numBlocks": 1
+    },
+    "mambaui/faq-one-question": {
+      "schemaFile": "./dist/schemas/components/faq/one-question-visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/faq/one-question-default-theme.yml",
+      "implementation": "FaqOneQuestion",
+      "numBlocks": 1
+    },
+    "mambaui/faq-header": {
+      "schemaFile": "./dist/schemas/components/faq/header-visual-schema.json",
+      "defaultThemeFile": "./dist/schemas/components/faq/header-default-theme.yml",
+      "implementation": "FaqHeader",
       "numBlocks": 1
     }
   }

@@ -1,7 +1,7 @@
 {
-  "name": "nodoku-floatui",
+  "name": "nodoku-mambaui",
   "version": "0.1.1",
-  "description": "a collection of visual components, based FloatUI components from floatui.com, for Nodoku static site generator",
+  "description": "a collection of visual components, based Mamba UI components from mambaui.com, for Nodoku static site generator",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -27,6 +27,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "dist": "shx rm -rf dist && tsc && shx cp -r schemas ./dist && nodoku-gen-component-default-theme && shx cp nodoku.manifest.json dist"
+    "dist": "shx rm -rf dist && tsc && shx cp -r schemas ./dist && shx cp nodoku.manifest.json dist",
+    "dist_old": "shx rm -rf dist && tsc && shx cp -r schemas ./dist && nodoku-gen-component-default-theme && shx cp nodoku.manifest.json dist"
   }
 }

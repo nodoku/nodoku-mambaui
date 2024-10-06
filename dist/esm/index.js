@@ -34,27 +34,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { HeroOneImpl } from "./components/hero-one/hero-one";
-import { HeroLeftTextImpl } from "./components/hero-left-text/hero-left-text";
 import { CardImpl } from "./components/card/card";
-export var NodokuFloatUi;
-(function (NodokuFloatUi) {
-    function HeroOne(props) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, HeroOneImpl(props)];
-            });
-        });
-    }
-    NodokuFloatUi.HeroOne = HeroOne;
-    function HeroLeftText(props) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, HeroLeftTextImpl(props)];
-            });
-        });
-    }
-    NodokuFloatUi.HeroLeftText = HeroLeftText;
+import { HeroOneImpl } from "./components/hero-one/hero-one";
+import { HeroTwoImpl } from "./components/hero-two/hero-two";
+import { HeroLeftTextImpl } from "./components/hero-left-text/hero-left-text";
+import { HeroRightTextImpl } from "./components/hero-right-text/hero-right-text";
+import { FaqOneQuestionImpl } from "./components/faq/faq-one-question";
+import { FaqHeaderImpl } from "./components/faq/faq-header";
+export var NodokuMambaUi;
+(function (NodokuMambaUi) {
     function Card(props) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -62,5 +50,53 @@ export var NodokuFloatUi;
             });
         });
     }
-    NodokuFloatUi.Card = Card;
-})(NodokuFloatUi || (NodokuFloatUi = {}));
+    NodokuMambaUi.Card = Card;
+    function HeroOne(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, HeroOneImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.HeroOne = HeroOne;
+    function HeroTwo(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, HeroTwoImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.HeroTwo = HeroTwo;
+    function HeroLeftText(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, HeroLeftTextImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.HeroLeftText = HeroLeftText;
+    function HeroRightText(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, HeroRightTextImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.HeroRightText = HeroRightText;
+    function FaqOneQuestion(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, FaqOneQuestionImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.FaqOneQuestion = FaqOneQuestion;
+    function FaqHeader(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, FaqHeaderImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.FaqHeader = FaqHeader;
+})(NodokuMambaUi || (NodokuMambaUi = {}));

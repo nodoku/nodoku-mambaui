@@ -8,16 +8,19 @@
     "bgColorStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
-    "rightImageStyle": {
+    "containerStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
-    "containerStyle": {
+    "innerContainerStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
     "imageStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
-    "innerContainerStyle": {
+    "imageContainerStyle": {
+      "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "contentContainerStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
     "titleStyle": {
@@ -34,6 +37,12 @@
     },
     "footerStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
+    },
+    "codeHighlightTheme": {
+      "$ref": "../../../node_modules/nodoku-components/schemas/components/highlighted-code/visual-schema.json"
+    },
+    "listTheme": {
+      "$ref": "../../../node_modules/nodoku-components/schemas/components/list-comp/visual-schema.json"
     },
     "additionalProperties": false
   },

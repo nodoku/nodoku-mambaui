@@ -1,33 +1,39 @@
-containerStyle:
-    base: mt-24 mx-auto pb-12 px-4 py-28 items-center lg:flex md:px-8
-    decoration: text-center
-innerContainerStyle:
-    base: space-y-4 flex-1 sm:text-center lg:text-left
-    decoration: ''
 bgImageStyle:
-    base: '-z-20 bg-cover bg-no-repeat'
-    decoration: 'blur-sm '
+    base: -z-20 bg-cover bg-no-repeat bg-center
+    decoration: blur-sm
 bgColorStyle:
-    base: '-z-10'
-    decoration: opacity-50 bg-gray-100 dark:bg-gray-700
-rightImageStyle:
-    base: w-full mx-auto sm:w-10/12  lg:w-full
+    base: -z-10
+    decoration: opacity-90 dark:bg-gray-800 bg-gray-100
+containerStyle:
+    base: dark:text-gray-100 text-gray-800
+    decoration: ''
+innerContainerStyle:
+    base: container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-center
+    decoration: ''
+imageContainerStyle:
+    base: flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128
+    decoration: ''
+contentContainerStyle:
+    base: flex flex-col justify-center p-6 pt-0 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-right
+    decoration: ''
+imageStyle:
+    base: object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128
     decoration: ''
 titleStyle:
-    base: font-bold text-4xl xl:text-5xl
-    decoration: text-white dark:text-black
-subTitleStyle:
-    base: font-bold text-2xl xl:text-3xl
-    decoration: text-white dark:text-black
-paragraphStyle:
-    base: text-2xl lg:text-3xl md:text-2xl sm:text-1xl
-    decoration: text-black dark:text-white
-footerStyle:
-    base: pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start
+    base: text-5xl font-bold leading-none sm:text-6xl
     decoration: ''
-footerButtonStyle:
-    base: px-7 py-3 w-full bg-white text-gray-800 text-center rounded-md shadow-md block sm:w-auto
+subTitleStyle:
+    base: mt-3 text-3xl font-bold leading-none sm:text-4xl
+    decoration: ''
+paragraphStyle:
+    base: mt-4 mb-2 text-lg
+    decoration: ''
+footerContainerStyle:
+    base: mt-5 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start
+    decoration: ''
+footerStyle:
+    base: px-8 py-3 text-lg font-semibold rounded bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50
     decoration: ''
 codeHighlightTheme:
-    light: a11y-light
-    dark: a11y-dark
+    hljsLightTheme: a11y-light
+    hljsDarkTheme: a11y-dark

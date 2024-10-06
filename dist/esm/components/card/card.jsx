@@ -35,20 +35,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { CardTheme } from "./card-theme";
-import { NdCode, NdTranslatedText } from "nodoku-core";
 import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
-var HighlightedCode = NodokuComponents.HighlightedCode;
-var ListComp = NodokuComponents.ListComp;
+var Paragraphs = NodokuComponents.Paragraphs;
 export function CardImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, style, _a, url, alt, absZero;
-        var _this = this;
-        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
-        return __generator(this, function (_v) {
-            switch (_v.label) {
+        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, style, _a, _b, _c, url, alt, absZero, imgUrl;
+        var _d;
+        var _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
+        return __generator(this, function (_u) {
+            switch (_u.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageUrlProvider = props.imageUrlProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, CardTheme.defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
@@ -56,71 +54,57 @@ export function CardImpl(props) {
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_v.sent()).t;
-                    style = block.bgImage ? {
-                        backgroundImage: "url(".concat(t(block.bgImage.url.key, (_c = (_b = block.bgImage) === null || _b === void 0 ? void 0 : _b.url) === null || _c === void 0 ? void 0 : _c.ns), ")")
-                    } : {};
-                    _a = block.images[0], url = _a.url, alt = _a.alt;
+                    t = (_u.sent()).t;
+                    if (!block.bgImageUrl) return [3 /*break*/, 3];
+                    _d = {};
+                    _b = "url(".concat;
+                    return [4 /*yield*/, imageUrlProvider(t(block.bgImageUrl.key, block.bgImageUrl.ns))];
+                case 2:
+                    _a = (_d.backgroundImage = _b.apply("url(", [_u.sent(), ")"]),
+                        _d);
+                    return [3 /*break*/, 4];
+                case 3:
+                    _a = {};
+                    _u.label = 4;
+                case 4:
+                    style = _a;
+                    _c = block.images[0], url = _c.url, alt = _c.alt;
                     absZero = "absolute top-0 left-0 right-0 bottom-0";
-                    return [4 /*yield*/, Promise.all(block.paragraphs.map(function (p) { return __awaiter(_this, void 0, void 0, function () {
-                            var _a, _b;
-                            return __generator(this, function (_c) {
-                                switch (_c.label) {
-                                    case 0:
-                                        if (p instanceof NdTranslatedText) {
-                                            // return <p className="text-gray-700 text-sm mt-2" dangerouslySetInnerHTML={{ __html: t(p.key, p.ns)}}></p>
-                                            return [2 /*return*/, <p className={"".concat((_a = effectiveTheme.paragraphStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.paragraphStyle) === null || _b === void 0 ? void 0 : _b.decoration)} dangerouslySetInnerHTML={{ __html: t(p.key, p.ns) }}/>];
-                                        }
-                                        if (!(p instanceof NdCode)) return [3 /*break*/, 2];
-                                        return [4 /*yield*/, HighlightedCode({
-                                                code: p,
-                                                theme: effectiveTheme.codeHighlightTheme,
-                                                defaultThemeName: defaultThemeName
-                                            })];
-                                    case 1: return [2 /*return*/, _c.sent()];
-                                    case 2: return [4 /*yield*/, ListComp({
-                                            list: p,
-                                            lng: lng,
-                                            i18nextProvider: i18nextProvider,
-                                            listTheme: effectiveTheme.listTheme
-                                        })
-                                        // return await <ListComp list={p as NdList} lng={lng} i18nextProvider={i18nextProvider} />
-                                    ];
-                                    case 3: return [2 /*return*/, _c.sent()
-                                        // return await <ListComp list={p as NdList} lng={lng} i18nextProvider={i18nextProvider} />
-                                    ];
-                                }
-                            });
-                        }); }))];
-                case 2: return [2 /*return*/, (
-                    // <article className="max-w-md mx-auto mt-4 shadow-lg border rounded-md duration-300 hover:shadow-sm relative pb-12" >
-                    <article className={"relative ".concat((_d = effectiveTheme.containerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.containerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
-            <div className={"".concat(absZero, " ").concat((_f = effectiveTheme.bgImageStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.bgImageStyle) === null || _g === void 0 ? void 0 : _g.decoration)} style={style}/>
-            <div className={"".concat(absZero, " ").concat((_h = effectiveTheme.bgColorStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.bgColorStyle) === null || _j === void 0 ? void 0 : _j.decoration)}/>
-            {url && <img src={t(url.key, url.ns)} alt={alt && t(alt.key, alt.ns)} loading="lazy" className={"".concat((_k = effectiveTheme.imageStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.imageStyle) === null || _l === void 0 ? void 0 : _l.decoration)}/>}
+                    return [4 /*yield*/, imageUrlProvider(t(url.key, url.ns))];
+                case 5:
+                    imgUrl = _u.sent();
+                    return [4 /*yield*/, Paragraphs({
+                            lng: lng,
+                            blockParagraphs: block.paragraphs,
+                            paragraphStyle: effectiveTheme.paragraphStyle,
+                            codeHighlightTheme: effectiveTheme.codeHighlightTheme,
+                            listTheme: effectiveTheme.listTheme,
+                            defaultThemeName: defaultThemeName,
+                            i18nextProvider: i18nextProvider
+                        })];
+                case 6: return [2 /*return*/, (<div className={"relative ".concat((_e = effectiveTheme.containerStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.containerStyle) === null || _f === void 0 ? void 0 : _f.decoration)}>
 
-            <div className={"relative ".concat((_m = effectiveTheme.innerContainerStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.innerContainerStyle) === null || _o === void 0 ? void 0 : _o.decoration, " pb-20")}>
-                {block.title &&
-                            // <h3 className="text-2xl text-gray-900 mt-3 mb-4" dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }} >
-                            <h3 className={"".concat((_p = effectiveTheme.titleStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.titleStyle) === null || _q === void 0 ? void 0 : _q.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
-                {block.subTitle &&
-                            // <h4 className="text-xl text-gray-900 mt-3 mb-4"
-                            <h4 className={"".concat((_r = effectiveTheme.subTitleStyle) === null || _r === void 0 ? void 0 : _r.base, " ").concat((_s = effectiveTheme.subTitleStyle) === null || _s === void 0 ? void 0 : _s.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
-                {_v.sent()}
+            <img src={imgUrl} alt={alt && t(alt.key, alt.ns)} className={"".concat((_g = effectiveTheme.imageStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.imageStyle) === null || _h === void 0 ? void 0 : _h.decoration)}/>
 
+            <div className={"".concat((_j = effectiveTheme.innerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.innerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
+                <div className="space-y-2">
+                    {block.title &&
+                            <h2 className={"".concat((_l = effectiveTheme.titleStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.titleStyle) === null || _m === void 0 ? void 0 : _m.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                    {block.subTitle &&
+                            <h2 className={"".concat((_o = effectiveTheme.subTitleStyle) === null || _o === void 0 ? void 0 : _o.base, " ").concat((_p = effectiveTheme.subTitleStyle) === null || _p === void 0 ? void 0 : _p.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
+                    {/*<p className="text-gray-100 dark:text-gray-800">Curabitur luctus erat nunc, sed ullamcorper erat*/}
+                    {/*    vestibulum eget.</p>*/}
+
+                    {_u.sent()}
+                </div>
                 {block.footer &&
-                            <div className={"absolute bottom-0 right-0"}>
-
-                        <a href="#" className={"".concat((_t = effectiveTheme.footerButtonStyle) === null || _t === void 0 ? void 0 : _t.base, " ").concat((_u = effectiveTheme.footerButtonStyle) === null || _u === void 0 ? void 0 : _u.decoration)}>
+                            <div className={"".concat((_q = effectiveTheme.footerContainerStyle) === null || _q === void 0 ? void 0 : _q.base, " ").concat((_r = effectiveTheme.footerContainerStyle) === null || _r === void 0 ? void 0 : _r.decoration)}>
+                        <button type="button" className={"".concat((_s = effectiveTheme.footerButtonStyle) === null || _s === void 0 ? void 0 : _s.base, " ").concat((_t = effectiveTheme.footerButtonStyle) === null || _t === void 0 ? void 0 : _t.decoration)}>
                             {t(block.footer.key, block.footer.ns)}
-                            <svg className={"rtl:rotate-180 w-3.5 h-3.5 ms-2"} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                            </svg>
-                        </a>
+                        </button>
                     </div>}
-
             </div>
-        </article>)];
+        </div>)];
             }
         });
     });

@@ -1,32 +1,35 @@
 bgImageStyle:
-    base: '-z-20 bg-cover bg-no-repeat'
-    decoration: 'blur-sm '
+    base: -z-20 bg-cover bg-no-repeat bg-center opacity-10
+    decoration: blur-sm
 bgColorStyle:
-    base: '-z-10'
-    decoration: opacity-50 bg-gray-100 dark:bg-gray-700
+    base: -z-10
+    decoration: opacity-100
     css:
         light:
             background: linear-gradient(106.89deg, rgba(192, 132, 252, 0.8) 15.73%, rgba(14, 165, 233, 0.9) 15.74%, rgba(232, 121, 249, 0.7) 56.49%, rgba(79, 70, 229, 0.8) 115.91%)
         dark:
             background: linear-gradient(106.89deg, rgba(192, 132, 252, 0.11) 15.73%, rgba(14, 165, 233, 0.41) 15.74%, rgba(232, 121, 249, 0.26) 56.49%, rgba(79, 70, 229, 0.4) 115.91%)
 containerStyle:
-    base: px-4 mx-auto max-w-screen-xl py-24 lg:py-56 lala
-    decoration: text-center
+    base: -z-0 bg-gray-100 dark:bg-gray-900
+    decoration: ''
+innerContainerStyle:
+    base: container mx-auto flex flex-col items-center px-4 py-16 text-center md:py-32 md:px-10 lg:px-32
+    decoration: ''
 titleStyle:
-    base: mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl
-    decoration: text-black dark:text-white
+    base: text-5xl md:text-7xl lg:text-9xl font-bold leading-none
+    decoration: ''
 subTitleStyle:
-    base: mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48
-    decoration: text-gray-700 dark:text-gray-200
+    base: mt-5 text-3xl lg:text-6xl font-bold leading-none
+    decoration: ''
 paragraphStyle:
-    base: text-2xl max-w-2xl mx-auto
+    base: mt-4 lg:text-2xl
+    decoration: ''
+footerContainerStyle:
+    base: flex flex-wrap justify-center
     decoration: ''
 footerStyle:
-    base: flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 pt-6
-    decoration: text-black dark:text-white
-footerButtonStyle:
-    base: mx-auto flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full font-medium active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto
-    decoration: 'text-sm text-white bg-sky-500 hover:bg-sky-400 '
+    base: px-6 py-2 lg:px-8 lg:py-3 mt-5 text-lg font-semibold rounded bg-violet-600 text-gray-50 dark:bg-violet-600 dark:text-gray-50
+    decoration: ''
 codeHighlightTheme:
-    light: a11y-light
-    dark: a11y-dark
+    hljsLightTheme: a11y-light
+    hljsDarkTheme: a11y-dark

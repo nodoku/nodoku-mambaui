@@ -1,33 +1,33 @@
-containerStyle:
-    base: mx-auto mt-4 shadow-lg rounded-md duration-300 hover:shadow-sm
-    decoration: border
 bgImageStyle:
-    base: '-z-20 bg-cover bg-no-repeat'
-    decoration: 'blur-sm '
+    base: -z-20 bg-cover bg-no-repeat bg-center
+    decoration: blur-sm
 bgColorStyle:
-    base: '-z-10'
+    base: -z-10
     decoration: opacity-50 bg-white dark:bg-gray-700
+containerStyle:
+    base: 'rounded-md shadow-md dark:bg-gray-900 bg-gray-50 '
+    decoration: 'dark:text-gray-100 text-gray-800'
 imageStyle:
-    base: w-full h-48 rounded-t-md
+    base: 'object-cover object-center w-full rounded-t-md h-72 bg-gray-500 dark:bg-gray-500'
     decoration: ''
 innerContainerStyle:
-    base: pt-3 mx-6 mb-6
+    base: 'flex flex-col justify-between p-6 space-y-8 pb-24'
     decoration: ''
 titleStyle:
-    base: text-2xl mt-3 mb-4
+    base: 'text-3xl font-semibold tracking-wide'
     decoration: ''
 subTitleStyle:
-    base: text-xl mt-3 mb-4
-    decoration: text-gray-600 dark:text-gray-300
+    base: 'text-xl font-semibold tracking-wide'
+    decoration: ''
 paragraphStyle:
-    base: ' mt-2 mb-2'
+    base: ''
     decoration: ''
 footerContainerStyle:
-    base: absolute bottom-0 right-0
-    decoration: p-3
+    base: 'absolute inset-x-0 bottom-0 mx-5 my-5'
+    decoration: ''
 footerButtonStyle:
-    base: inline-flex items-center text-center focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800
-    decoration: px-3 py-2 text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 rounded-lg dark:bg-blue-600 dark:hover:bg-blue-700
+    base: 'flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50 mb-5'
+    decoration: ''
 codeHighlightTheme:
     light: a11y-light
     dark: a11y-dark
