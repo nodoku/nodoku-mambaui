@@ -41,7 +41,7 @@ var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
 export function HeroRightTextImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, style, _a, url, alt, absZero, imgUrl, paragraphs, backgrounds;
+        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, imgUrl, paragraphs, backgrounds;
         var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
         return __generator(this, function (_v) {
             switch (_v.label) {
@@ -55,12 +55,8 @@ export function HeroRightTextImpl(props) {
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
                     t = (_v.sent()).t;
-                    style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl.key, block.bgImageUrl.ns), ")")
-                    } : {};
                     _a = block.images[0], url = _a.url, alt = _a.alt;
-                    absZero = "absolute top-0 left-0 right-0 bottom-0";
-                    return [4 /*yield*/, imageUrlProvider(t(url.key, url.ns))];
+                    return [4 /*yield*/, imageUrlProvider(t(url))];
                 case 2:
                     imgUrl = _v.sent();
                     return [4 /*yield*/, Paragraphs({
@@ -94,21 +90,17 @@ export function HeroRightTextImpl(props) {
                 </div>
                 <div className={"".concat((_k = effectiveTheme.contentContainerStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.contentContainerStyle) === null || _l === void 0 ? void 0 : _l.decoration)}>
                     {block.title &&
-                                <h1 className={"".concat((_m = effectiveTheme.titleStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.titleStyle) === null || _o === void 0 ? void 0 : _o.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                                <h1 className={"".concat((_m = effectiveTheme.titleStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.titleStyle) === null || _o === void 0 ? void 0 : _o.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
 
                     {block.subTitle &&
-                                <h3 className={"".concat((_p = effectiveTheme.subTitleStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.subTitleStyle) === null || _q === void 0 ? void 0 : _q.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
-
-                    {/*<p className="">Dictum aliquam porta in condimentum ac integer*/}
-                    {/*    <br className="hidden md:inline lg:hidden"/>turpis pulvinar, est scelerisque ligula sem*/}
-                    {/*</p>*/}
+                                <h3 className={"".concat((_p = effectiveTheme.subTitleStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.subTitleStyle) === null || _q === void 0 ? void 0 : _q.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                     {paragraphs}
 
                     {block.footer &&
                                 <div className={"".concat((_r = effectiveTheme.footerContainerStyle) === null || _r === void 0 ? void 0 : _r.base, " ").concat((_s = effectiveTheme.footerContainerStyle) === null || _s === void 0 ? void 0 : _s.decoration)}>
                             <a rel="noopener noreferrer" href="#" className={"".concat((_t = effectiveTheme.footerStyle) === null || _t === void 0 ? void 0 : _t.base, " ").concat((_u = effectiveTheme.footerStyle) === null || _u === void 0 ? void 0 : _u.decoration)}>
-                                {t(block.footer.key, block.footer.ns)}
+                                {t(block.footer)}
                             </a>
                         </div>}
                 </div>

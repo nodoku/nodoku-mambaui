@@ -38,7 +38,7 @@ import { mergeTheme } from "nodoku-core";
 import { FaqHeaderTheme } from "./faq-header-theme";
 export function FaqHeaderImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, style, absZero;
+        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t;
         var _a, _b, _c, _d, _e, _f, _g, _h;
         return __generator(this, function (_j) {
             switch (_j.label) {
@@ -52,16 +52,13 @@ export function FaqHeaderImpl(props) {
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
                     t = (_j.sent()).t;
-                    style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl.key, block.bgImageUrl.ns), ")")
-                    } : {};
-                    absZero = "absolute top-0 left-0 right-0 bottom-0";
+                    // console.log("effective theme", effectiveTheme)
                     return [2 /*return*/, (<section className={"".concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
             <div className={"".concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
                 {block.title &&
-                                <h2 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                                <h2 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                 {block.subTitle &&
-                                <h4 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
+                                <h4 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
             </div>
         </section>)];
             }

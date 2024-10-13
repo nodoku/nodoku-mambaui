@@ -42,9 +42,9 @@ var Backgrounds = NodokuComponents.Backgrounds;
 export function HeroTwoImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, imageUrlProvider, effectiveTheme, block, t, style, paragraphs, backgrounds;
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
-        return __generator(this, function (_p) {
-            switch (_p.label) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+        return __generator(this, function (_o) {
+            switch (_o.label) {
                 case 0:
                     componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName, imageUrlProvider = props.imageUrlProvider;
                     effectiveTheme = mergeTheme(theme, HeroTwoTheme.defaultTheme);
@@ -54,9 +54,9 @@ export function HeroTwoImpl(props) {
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_p.sent()).t;
+                    t = (_o.sent()).t;
                     style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl.key, (_a = block.bgImageUrl) === null || _a === void 0 ? void 0 : _a.ns), ")")
+                        backgroundImage: "url(".concat(t(block.bgImageUrl), ")")
                     } : {};
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
@@ -68,7 +68,7 @@ export function HeroTwoImpl(props) {
                             i18nextProvider: i18nextProvider
                         })];
                 case 2:
-                    paragraphs = _p.sent();
+                    paragraphs = _o.sent();
                     return [4 /*yield*/, Backgrounds({
                             lng: lng,
                             defaultThemeName: defaultThemeName,
@@ -79,27 +79,23 @@ export function HeroTwoImpl(props) {
                             imageUrlProvider: imageUrlProvider
                         })];
                 case 3:
-                    backgrounds = _p.sent();
+                    backgrounds = _o.sent();
                     return [2 /*return*/, (<section className={"relative"}>
             {backgrounds}
-            <div className={"".concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
-                <div className={"".concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.innerContainerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
+            <div className={"".concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
+                <div className={"".concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
                     {block.title &&
-                                <h1 className={"".concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.titleStyle) === null || _g === void 0 ? void 0 : _g.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                                <h1 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
 
                     {block.subTitle &&
-                                <h3 className={"".concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.subTitleStyle) === null || _j === void 0 ? void 0 : _j.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
+                                <h3 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                     {paragraphs}
 
-                    {/*<p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-900 dark:text-gray-50">*/}
-                    {/*    Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab amet vero eaque explicabo!*/}
-                    {/*</p>*/}
-
                     {block.footer &&
-                                <div className={"".concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.footerContainerStyle) === null || _l === void 0 ? void 0 : _l.decoration)}>
-                            <button type="button" className={"".concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
-                                {t(block.footer.key, block.footer.ns)}
+                                <div className={"".concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
+                            <button type="button" className={"".concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)}>
+                                {t(block.footer)}
                             </button>
                         </div>}
 

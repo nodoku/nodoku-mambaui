@@ -1,10 +1,7 @@
 import {JSX} from "react";
 import {HeroLeftTextTheme} from "./hero-left-text-theme";
-import {NdCode, NdContentBlock, NdList, NdSkinComponentProps, NdTranslatedText} from "nodoku-core";
-import {mergeTheme} from "nodoku-core";
+import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
-import ListComp = NodokuComponents.ListComp;
-import HighlightedCode = NodokuComponents.HighlightedCode;
 import Paragraphs = NodokuComponents.Paragraphs;
 import Backgrounds = NodokuComponents.Backgrounds;
 
@@ -33,17 +30,11 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
 
     const {t} = await i18nextProvider(lng);
 
-    // var style: React.CSSProperties = block.bgImageUrl ? {
-    //     backgroundImage: `url(${t(block.bgImageUrl.key, block.bgImageUrl.ns)})`
-    // } : {};
-
     // console.log("effective theme", effectiveTheme)
 
     const {url, alt} = block.images[0];
 
-    // const absZero = "absolute top-0 left-0 right-0 bottom-0";
-
-    const imgUrl = await imageUrlProvider(t(url.key, url.ns));
+    const imgUrl = await imageUrlProvider(t(url));
 
     const paragraphs = await Paragraphs({
         lng: lng,
@@ -67,8 +58,6 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
 
     return (
         <section className={`relative ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
-            {/*<div className={`absolute top-0 left-0 right-0 bottom-0 ${effectiveTheme.bgImageStyle?.base} ${effectiveTheme.bgImageStyle?.decoration}`} style={style}></div>*/}
-            {/*<div className={`absolute top-0 left-0 right-0 bottom-0 ${effectiveTheme.bgColorStyle?.base} ${effectiveTheme.bgColorStyle?.decoration}`}></div>*/}
             {backgrounds}
 
             <div
@@ -77,12 +66,12 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
                     className={`${effectiveTheme.contentContainerStyle?.base} ${effectiveTheme.contentContainerStyle?.decoration}`}>
                     {block.title &&
                         <h1 className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
-                            dangerouslySetInnerHTML={{__html: t(block.title.key, block.title.ns)}}/>
+                            dangerouslySetInnerHTML={{__html: t(block.title)}}/>
                     }
 
                     {block.subTitle &&
                         <h3 className={`${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
-                            dangerouslySetInnerHTML={{__html: t(block.subTitle.key, block.subTitle.ns)}}/>
+                            dangerouslySetInnerHTML={{__html: t(block.subTitle)}}/>
                     }
 
                     {paragraphs}
@@ -92,7 +81,7 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
                             className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
                             <a rel="noopener noreferrer" href="#"
                                className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}>
-                                {t(block.footer.key, block.footer.ns)}
+                                {t(block.footer)}
                             </a>
                         </div>
                     }

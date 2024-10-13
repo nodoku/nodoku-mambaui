@@ -41,7 +41,7 @@ var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
 export function HeroOneImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, imageUrlProvider, effectiveTheme, block, t, paragraphs, backgrounds, div2;
+        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, imageUrlProvider, effectiveTheme, block, t, paragraphs, backgrounds;
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         return __generator(this, function (_o) {
             switch (_o.label) {
@@ -77,32 +77,26 @@ export function HeroOneImpl(props) {
                         })];
                 case 3:
                     backgrounds = _o.sent();
-                    div2 = (<section className={"relative ".concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
-            {/*<div className={`absolute top-0 left-0 right-0 bottom-0 ${effectiveTheme.bgImageStyle?.base} ${effectiveTheme.bgImageStyle?.decoration}`} style={style}></div>*/}
-            {/*<div className={`absolute top-0 left-0 right-0 bottom-0 ${effectiveTheme.bgColorStyle?.base} ${effectiveTheme.bgColorStyle?.decoration}`}>*/}
-            {/*    {backgrounds}*/}
-            {/*</div>*/}
+                    return [2 /*return*/, (<section className={"relative ".concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
+
             {backgrounds}
+
             <div className={"".concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
                 {block.title &&
-                            <h1 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                                <h1 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                 {block.subTitle &&
-                            <h3 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle.key, block.subTitle.ns) }}/>}
-                {/*<p className="px-8 mt-8 mb-12 text-lg">Cupiditate minima voluptate temporibus quia? Architecto beatae*/}
-                {/*    esse ab amet vero eaque explicabo!</p>*/}
+                                <h3 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                 {paragraphs}
 
                 {block.footer &&
-                            <div className={"".concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
+                                <div className={"".concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
                         <button className={"".concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)}>
                             Get started
                         </button>
                     </div>}
             </div>
-        </section>);
-                    // return <div>{[div1, div2]}</div>
-                    return [2 /*return*/, div2];
+        </section>)];
             }
         });
     });

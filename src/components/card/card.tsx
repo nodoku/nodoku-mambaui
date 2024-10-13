@@ -29,52 +29,47 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
 
     const {t} = await i18nextProvider(lng);
 
-    var style: React.CSSProperties = block.bgImageUrl ? {
-        backgroundImage: `url(${await imageUrlProvider(t(block.bgImageUrl.key, block.bgImageUrl.ns))})`
-    } : {};
-
     // console.log("effective theme", effectiveTheme)
 
     const {url, alt} = block.images[0];
 
-    const absZero = "absolute top-0 left-0 right-0 bottom-0";
+    const imgUrl = await imageUrlProvider(t(url));
 
-    const imgUrl = await imageUrlProvider(t(url.key, url.ns));
+    const paragraphs = await Paragraphs({
+        lng: lng,
+        blockParagraphs: block.paragraphs,
+        paragraphStyle: effectiveTheme.paragraphStyle,
+        codeHighlightTheme: effectiveTheme.codeHighlightTheme!,
+        listTheme: effectiveTheme.listTheme!,
+        defaultThemeName: defaultThemeName,
+        i18nextProvider: i18nextProvider
+    })
 
     return (
         <div className={`relative ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
 
-            <img src={imgUrl} alt={alt && t(alt.key, alt.ns)}
+            <img src={imgUrl} alt={alt && t(alt)}
                  className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>
 
             <div className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 <div className="space-y-2">
                     {block.title &&
                         <h2 className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
-                            dangerouslySetInnerHTML={{__html: t(block.title.key, block.title.ns)}} />
+                            dangerouslySetInnerHTML={{__html: t(block.title)}} />
                     }
                     {block.subTitle &&
                         <h2 className={`${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
-                            dangerouslySetInnerHTML={{__html: t(block.subTitle.key, block.subTitle.ns)}} />
+                            dangerouslySetInnerHTML={{__html: t(block.subTitle)}} />
                     }
-                    {/*<p className="text-gray-100 dark:text-gray-800">Curabitur luctus erat nunc, sed ullamcorper erat*/}
-                    {/*    vestibulum eget.</p>*/}
 
-                    {await Paragraphs({
-                        lng: lng,
-                        blockParagraphs: block.paragraphs,
-                        paragraphStyle: effectiveTheme.paragraphStyle,
-                        codeHighlightTheme: effectiveTheme.codeHighlightTheme!,
-                        listTheme: effectiveTheme.listTheme!,
-                        defaultThemeName: defaultThemeName,
-                        i18nextProvider: i18nextProvider
-                    })}
+                    {paragraphs}
+
                 </div>
                 {block.footer &&
                     <div className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
                         <button type="button"
                                 className={`${effectiveTheme.footerButtonStyle?.base} ${effectiveTheme.footerButtonStyle?.decoration}`}>
-                            {t(block.footer.key, block.footer.ns)}
+                            {t(block.footer)}
                         </button>
                     </div>
                 }

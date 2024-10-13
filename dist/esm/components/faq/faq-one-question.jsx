@@ -55,7 +55,7 @@ export function FaqOneQuestionImpl(props) {
                 case 1:
                     t = (_g.sent()).t;
                     style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl.key, block.bgImageUrl.ns), ")")
+                        backgroundImage: "url(".concat(t(block.bgImageUrl), ")")
                     } : {};
                     absZero = "absolute top-0 left-0 right-0 bottom-0";
                     return [4 /*yield*/, Paragraphs({
@@ -73,7 +73,7 @@ export function FaqOneQuestionImpl(props) {
             <div className={"".concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
                 <details open={false}>
                     {block.title &&
-                            <summary className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title.key, block.title.ns) }}/>}
+                            <summary className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                     {/*<div className="">*/}
                     {/*    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni, quas*/}
                     {/*        animi enim veritatis deleniti ex. Impedit.</p>*/}

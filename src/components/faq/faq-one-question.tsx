@@ -30,7 +30,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
     const {t} = await i18nextProvider(lng);
 
     var style: React.CSSProperties = block.bgImageUrl ? {
-        backgroundImage: `url(${t(block.bgImageUrl.key, block.bgImageUrl.ns)})`
+        backgroundImage: `url(${t(block.bgImageUrl)})`
     } : {};
 
     // console.log("effective theme", effectiveTheme)
@@ -47,7 +47,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
                 <details open={false}>
                     {block.title &&
                         <summary className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
-                             dangerouslySetInnerHTML={{__html: t(block.title.key, block.title.ns)}} />
+                             dangerouslySetInnerHTML={{__html: t(block.title)}} />
                     }
                     {/*<div className="">*/}
                     {/*    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni, quas*/}
