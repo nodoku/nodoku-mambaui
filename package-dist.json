@@ -1,6 +1,6 @@
 {
   "name": "nodoku-mambaui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a collection of visual components, based Mamba UI components from mambaui.com, for Nodoku static site generator",
   "exports": {
     ".": {
@@ -11,15 +11,12 @@
   },
   "module": "./esm/index.js",
   "types": "./types/index.d.ts",
-  "files": [
-    "./"
-  ],
   "type": "module",
   "peerDependencies": {
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.2",
-    "nodoku-core": "file:../../nodoku-core/dist",
-    "nodoku-components": "file:../../nodoku-components/dist",
+    "nodoku-core": "0.1.5",
+    "nodoku-components": "0.1.4",
     "react": ">=18"
   },
   "devDependencies": {

@@ -18,8 +18,8 @@
   "peerDependencies": {
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.2",
-    "nodoku-core": "0.1.5",
-    "nodoku-components": "0.1.4",
+    "nodoku-core": "file:../nodoku-core",
+    "nodoku-components": "file:../nodoku-components",
     "react": ">=18"
   },
   "devDependencies": {
