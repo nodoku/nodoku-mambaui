@@ -72,11 +72,10 @@ export async function HeroOneImpl(props: NdSkinComponentProps<HeroOneTheme, void
                 {paragraphs}
 
                 {block.footer &&
-                    <div
-                        className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
-                        <button
-                            className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}
-                            dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
+                    <div className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
+                        <button type={"button"}
+                                className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}
+                                dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
                     </div>
                 }
             </div>

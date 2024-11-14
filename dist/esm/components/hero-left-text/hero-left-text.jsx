@@ -97,7 +97,8 @@ export function HeroLeftTextImpl(props) {
                     {block.footer &&
                                 <div className={"".concat((_m = effectiveTheme.footerContainerStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerContainerStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
                             <a rel="noopener noreferrer" href="#" className={"".concat((_p = effectiveTheme.footerStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.footerStyle) === null || _q === void 0 ? void 0 : _q.decoration)}>
-                                {t(block.footer)}
+                                <span dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
+
                             </a>
                         </div>}
                 </div>

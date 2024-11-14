@@ -86,7 +86,8 @@ export async function HeroRightTextImpl(props: NdSkinComponentProps<HeroRightTex
                             className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
                             <a rel="noopener noreferrer" href="#"
                                className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}>
-                                {t(block.footer)}
+                                <span dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
+
                             </a>
                         </div>
                     }

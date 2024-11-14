@@ -69,7 +69,7 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
                     <div className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
                         <button type="button"
                                 className={`${effectiveTheme.footerButtonStyle?.base} ${effectiveTheme.footerButtonStyle?.decoration}`}>
-                            {t(block.footer)}
+                            <span dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
                         </button>
                     </div>
                 }

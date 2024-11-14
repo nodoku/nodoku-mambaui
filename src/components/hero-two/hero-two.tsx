@@ -77,10 +77,9 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
 
                     {block.footer &&
                         <div className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
-                            <button type="button"
-                                    className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}>
-                                {t(block.footer)}
-                            </button>
+                            <button type={"button"}
+                                    className={`${effectiveTheme.footerStyle?.base} ${effectiveTheme.footerStyle?.decoration}`}
+                                    dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
                         </div>
                     }
 

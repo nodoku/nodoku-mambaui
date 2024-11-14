@@ -86,7 +86,7 @@ export function CardImpl(props) {
                 {block.footer &&
                                 <div className={"".concat((_m = effectiveTheme.footerContainerStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerContainerStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
                         <button type="button" className={"".concat((_p = effectiveTheme.footerButtonStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.footerButtonStyle) === null || _q === void 0 ? void 0 : _q.decoration)}>
-                            {t(block.footer)}
+                            <span dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
                         </button>
                     </div>}
             </div>

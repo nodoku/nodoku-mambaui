@@ -94,9 +94,7 @@ export function HeroTwoImpl(props) {
 
                     {block.footer &&
                                 <div className={"".concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
-                            <button type="button" className={"".concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)}>
-                                {t(block.footer)}
-                            </button>
+                            <button type={"button"} className={"".concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)} dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
                         </div>}
 
                 </div>
