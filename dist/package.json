@@ -1,6 +1,6 @@
 {
   "name": "nodoku-mambaui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a collection of visual components, based Mamba UI components from mambaui.com, for Nodoku static site generator",
   "exports": {
     ".": {
@@ -15,8 +15,8 @@
   "peerDependencies": {
     "@types/node": "^20.12.11",
     "@types/react": "^18.3.2",
-    "nodoku-core": "0.1.6",
-    "nodoku-components": "0.1.5",
+    "nodoku-core": "0.1.7",
+    "nodoku-components": "0.1.6",
     "react": ">=18"
   },
   "devDependencies": {

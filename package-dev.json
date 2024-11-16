@@ -1,6 +1,6 @@
 {
   "name": "nodoku-mambaui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a collection of visual components, based Mamba UI components from mambaui.com, for Nodoku static site generator",
   "exports": {
     ".": {
