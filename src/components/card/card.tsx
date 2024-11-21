@@ -13,7 +13,7 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
         theme,
         themes,
         lng,
-        imageUrlProvider,
+        imageProvider,
         i18nextProvider,
         defaultThemeName} = props;
 
@@ -33,7 +33,7 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
 
     const {url, alt} = block.images[0];
 
-    const imgUrl = await imageUrlProvider(t(url));
+    // const imgUrl = await imageUrlProvider(t(url));
 
     const paragraphs = await Paragraphs({
         lng: lng,
@@ -48,8 +48,9 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
     return (
         <div className={`relative ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
 
-            <img src={imgUrl} alt={alt && t(alt)}
-                 className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>
+            {/*<img src={imgUrl} alt={alt && t(alt)}*/}
+            {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
+            {await imageProvider({url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle})}
 
             <div className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 <div className="space-y-2">

@@ -16,7 +16,7 @@ export async function HeroOneImpl(props: NdSkinComponentProps<HeroOneTheme, void
         lng,
         i18nextProvider,
         defaultThemeName,
-        imageUrlProvider
+        // imageUrlProvider
     } = props;
 
     // console.log("content card ", JSON.stringify(content));
@@ -49,8 +49,8 @@ export async function HeroOneImpl(props: NdSkinComponentProps<HeroOneTheme, void
         bgColorStyle: effectiveTheme.bgColorStyle,
         bgImageStyle: effectiveTheme.bgImageStyle,
         i18nextProvider: i18nextProvider,
-        bgImageUrl: block.bgImageUrl,
-        imageUrlProvider: imageUrlProvider
+        // bgImageUrl: block.bgImageUrl,
+        // imageUrlProvider: imageUrlProvider
     });
 
     return (

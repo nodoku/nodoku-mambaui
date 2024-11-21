@@ -13,7 +13,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
         theme,
         themes,
         lng,
-        imageUrlProvider,
+        // imageUrlProvider,
         i18nextProvider,
         defaultThemeName} = props;
 
@@ -29,9 +29,9 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
 
     const {t} = await i18nextProvider(lng);
 
-    var style: React.CSSProperties = block.bgImageUrl ? {
-        backgroundImage: `url(${t(block.bgImageUrl)})`
-    } : {};
+    // var style: React.CSSProperties = block.bgImageUrl ? {
+    //     backgroundImage: `url(${t(block.bgImageUrl)})`
+    // } : {};
 
     // console.log("effective theme", effectiveTheme)
 

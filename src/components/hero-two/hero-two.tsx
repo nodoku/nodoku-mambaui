@@ -16,7 +16,7 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
         lng,
         i18nextProvider,
         defaultThemeName,
-        imageUrlProvider
+        // imageUrlProvider
     } = props;
 
     // console.log("content card ", JSON.stringify(content));
@@ -31,9 +31,9 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
 
     const {t} = await i18nextProvider(lng);
 
-    var style: React.CSSProperties = block.bgImageUrl ? {
-        backgroundImage: `url(${t(block.bgImageUrl)})`
-    } : {};
+    // var style: React.CSSProperties = block.bgImageUrl ? {
+    //     backgroundImage: `url(${t(block.bgImageUrl)})`
+    // } : {};
 
     // console.log("effective theme", effectiveTheme)
 
@@ -53,8 +53,8 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
         bgColorStyle: effectiveTheme.bgColorStyle,
         bgImageStyle: effectiveTheme.bgImageStyle,
         i18nextProvider: i18nextProvider,
-        bgImageUrl: block.bgImageUrl,
-        imageUrlProvider: imageUrlProvider
+        // bgImageUrl: block.bgImageUrl,
+        // imageUrlProvider: imageUrlProvider
     });
 
     return (

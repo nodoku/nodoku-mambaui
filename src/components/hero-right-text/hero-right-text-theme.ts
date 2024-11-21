@@ -2,6 +2,7 @@ import {ThemeStyle} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
+import {ImageStyle} from "nodoku-core";
 
 export class HeroRightTextTheme {
 
@@ -9,7 +10,7 @@ export class HeroRightTextTheme {
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
     imageContainerStyle?: ThemeStyle;
-    imageStyle?: ThemeStyle;
+    imageStyle?: ImageStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
     contentContainerStyle?: ThemeStyle;

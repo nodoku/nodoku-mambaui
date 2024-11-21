@@ -2,6 +2,7 @@ import {ThemeStyle} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ListCompTheme = NodokuComponents.ListCompTheme;
+import {ImageStyle} from "nodoku-core";
 
 export class CardTheme {
 
@@ -9,7 +10,7 @@ export class CardTheme {
     containerStyle?: ThemeStyle;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
-    imageStyle?: ThemeStyle;
+    imageStyle?: ImageStyle;
     innerContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;

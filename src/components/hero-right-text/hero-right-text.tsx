@@ -14,7 +14,7 @@ export async function HeroRightTextImpl(props: NdSkinComponentProps<HeroRightTex
         theme,
         themes,
         lng,
-        imageUrlProvider,
+        imageProvider,
         i18nextProvider,
         defaultThemeName} = props;
 
@@ -34,7 +34,7 @@ export async function HeroRightTextImpl(props: NdSkinComponentProps<HeroRightTex
 
     const {url, alt} = block.images[0];
 
-    const imgUrl = await imageUrlProvider(t(url));
+    // const imgUrl = await imageUrlProvider(t(url));
 
     const paragraphs = await Paragraphs({
         lng: lng,
@@ -52,8 +52,8 @@ export async function HeroRightTextImpl(props: NdSkinComponentProps<HeroRightTex
         bgColorStyle: effectiveTheme.bgColorStyle,
         bgImageStyle: effectiveTheme.bgImageStyle,
         i18nextProvider: i18nextProvider,
-        bgImageUrl: block.bgImageUrl,
-        imageUrlProvider: imageUrlProvider
+        // bgImageUrl: block.bgImageUrl,
+        // imageUrlProvider: imageUrlProvider
     });
 
     return (
@@ -64,8 +64,9 @@ export async function HeroRightTextImpl(props: NdSkinComponentProps<HeroRightTex
                 className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 <div
                     className={`${effectiveTheme.imageContainerStyle?.base} ${effectiveTheme.imageContainerStyle?.decoration}`}>
-                    <img src={imgUrl} alt=""
-                         className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>
+                    {/*<img src={imgUrl} alt=""*/}
+                    {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
+                    {await imageProvider({url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle})}
                 </div>
                 <div
                     className={`${effectiveTheme.contentContainerStyle?.base} ${effectiveTheme.contentContainerStyle?.decoration}`}>

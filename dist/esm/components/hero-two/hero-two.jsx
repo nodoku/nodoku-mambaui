@@ -41,12 +41,12 @@ var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
 export function HeroTwoImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, imageUrlProvider, effectiveTheme, block, t, style, paragraphs, backgrounds;
+        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
         return __generator(this, function (_o) {
             switch (_o.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName, imageUrlProvider = props.imageUrlProvider;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, HeroTwoTheme.defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
@@ -55,9 +55,6 @@ export function HeroTwoImpl(props) {
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
                     t = (_o.sent()).t;
-                    style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl), ")")
-                    } : {};
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
@@ -75,8 +72,8 @@ export function HeroTwoImpl(props) {
                             bgColorStyle: effectiveTheme.bgColorStyle,
                             bgImageStyle: effectiveTheme.bgImageStyle,
                             i18nextProvider: i18nextProvider,
-                            bgImageUrl: block.bgImageUrl,
-                            imageUrlProvider: imageUrlProvider
+                            // bgImageUrl: block.bgImageUrl,
+                            // imageUrlProvider: imageUrlProvider
                         })];
                 case 3:
                     backgrounds = _o.sent();

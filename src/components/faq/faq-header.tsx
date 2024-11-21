@@ -11,7 +11,7 @@ export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, 
         theme,
         themes,
         lng,
-        imageUrlProvider,
+        // imageUrlProvider,
         i18nextProvider,
         defaultThemeName} = props;
 

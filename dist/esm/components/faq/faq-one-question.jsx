@@ -40,12 +40,14 @@ import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
 export function FaqOneQuestionImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, style, absZero;
+        var componentIndex, content, theme, themes, lng, 
+        // imageUrlProvider,
+        i18nextProvider, defaultThemeName, effectiveTheme, block, t, absZero;
         var _a, _b, _c, _d, _e, _f;
         return __generator(this, function (_g) {
             switch (_g.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageUrlProvider = props.imageUrlProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, FaqOneQuestionTheme.defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
@@ -54,9 +56,6 @@ export function FaqOneQuestionImpl(props) {
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
                     t = (_g.sent()).t;
-                    style = block.bgImageUrl ? {
-                        backgroundImage: "url(".concat(t(block.bgImageUrl), ")")
-                    } : {};
                     absZero = "absolute top-0 left-0 right-0 bottom-0";
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,

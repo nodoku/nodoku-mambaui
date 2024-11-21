@@ -41,12 +41,12 @@ var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
 export function HeroRightTextImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, imageUrlProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, imgUrl, paragraphs, backgrounds;
-        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
-        return __generator(this, function (_v) {
-            switch (_v.label) {
+        var componentIndex, content, theme, themes, lng, imageProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs, backgrounds;
+        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
+        return __generator(this, function (_t) {
+            switch (_t.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageUrlProvider = props.imageUrlProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageProvider = props.imageProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, HeroRightTextTheme.defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
@@ -54,11 +54,8 @@ export function HeroRightTextImpl(props) {
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_v.sent()).t;
+                    t = (_t.sent()).t;
                     _a = block.images[0], url = _a.url, alt = _a.alt;
-                    return [4 /*yield*/, imageUrlProvider(t(url))];
-                case 2:
-                    imgUrl = _v.sent();
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
@@ -68,38 +65,41 @@ export function HeroRightTextImpl(props) {
                             defaultThemeName: defaultThemeName,
                             i18nextProvider: i18nextProvider
                         })];
-                case 3:
-                    paragraphs = _v.sent();
+                case 2:
+                    paragraphs = _t.sent();
                     return [4 /*yield*/, Backgrounds({
                             lng: lng,
                             defaultThemeName: defaultThemeName,
                             bgColorStyle: effectiveTheme.bgColorStyle,
                             bgImageStyle: effectiveTheme.bgImageStyle,
                             i18nextProvider: i18nextProvider,
-                            bgImageUrl: block.bgImageUrl,
-                            imageUrlProvider: imageUrlProvider
+                            // bgImageUrl: block.bgImageUrl,
+                            // imageUrlProvider: imageUrlProvider
                         })];
-                case 4:
-                    backgrounds = _v.sent();
-                    return [2 /*return*/, (<section className={"relative ".concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
+                case 3:
+                    backgrounds = _t.sent();
+                    return [4 /*yield*/, imageProvider({ url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle })];
+                case 4: return [2 /*return*/, (<section className={"relative ".concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
             {backgrounds}
 
             <div className={"".concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.innerContainerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
                 <div className={"".concat((_f = effectiveTheme.imageContainerStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.imageContainerStyle) === null || _g === void 0 ? void 0 : _g.decoration)}>
-                    <img src={imgUrl} alt="" className={"".concat((_h = effectiveTheme.imageStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.imageStyle) === null || _j === void 0 ? void 0 : _j.decoration)}/>
+                    {/*<img src={imgUrl} alt=""*/}
+                    {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
+                    {_t.sent()}
                 </div>
-                <div className={"".concat((_k = effectiveTheme.contentContainerStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.contentContainerStyle) === null || _l === void 0 ? void 0 : _l.decoration)}>
+                <div className={"".concat((_h = effectiveTheme.contentContainerStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.contentContainerStyle) === null || _j === void 0 ? void 0 : _j.decoration)}>
                     {block.title &&
-                                <h1 className={"".concat((_m = effectiveTheme.titleStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.titleStyle) === null || _o === void 0 ? void 0 : _o.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                            <h1 className={"".concat((_k = effectiveTheme.titleStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.titleStyle) === null || _l === void 0 ? void 0 : _l.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
 
                     {block.subTitle &&
-                                <h3 className={"".concat((_p = effectiveTheme.subTitleStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.subTitleStyle) === null || _q === void 0 ? void 0 : _q.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                            <h3 className={"".concat((_m = effectiveTheme.subTitleStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.subTitleStyle) === null || _o === void 0 ? void 0 : _o.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                     {paragraphs}
 
                     {block.footer &&
-                                <div className={"".concat((_r = effectiveTheme.footerContainerStyle) === null || _r === void 0 ? void 0 : _r.base, " ").concat((_s = effectiveTheme.footerContainerStyle) === null || _s === void 0 ? void 0 : _s.decoration)}>
-                            <a rel="noopener noreferrer" href="#" className={"".concat((_t = effectiveTheme.footerStyle) === null || _t === void 0 ? void 0 : _t.base, " ").concat((_u = effectiveTheme.footerStyle) === null || _u === void 0 ? void 0 : _u.decoration)}>
+                            <div className={"".concat((_p = effectiveTheme.footerContainerStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.footerContainerStyle) === null || _q === void 0 ? void 0 : _q.decoration)}>
+                            <a rel="noopener noreferrer" href="#" className={"".concat((_r = effectiveTheme.footerStyle) === null || _r === void 0 ? void 0 : _r.base, " ").concat((_s = effectiveTheme.footerStyle) === null || _s === void 0 ? void 0 : _s.decoration)}>
                                 <span dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
 
                             </a>
