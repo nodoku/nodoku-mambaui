@@ -38,6 +38,10 @@ import { CardTheme } from "./card-theme";
 import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
+import { ts } from "nodoku-core";
+var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
+var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
+var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 export function CardImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var componentIndex, content, theme, themes, lng, imageProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs;
@@ -58,34 +62,34 @@ export function CardImpl(props) {
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
-                            paragraphStyle: effectiveTheme.paragraphStyle,
-                            codeHighlightTheme: effectiveTheme.codeHighlightTheme,
-                            listTheme: effectiveTheme.listTheme,
+                            paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
+                            codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
+                            listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                             defaultThemeName: defaultThemeName,
                             i18nextProvider: i18nextProvider
                         })];
                 case 2:
                     paragraphs = _p.sent();
                     return [4 /*yield*/, imageProvider({ url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle })];
-                case 3: return [2 /*return*/, (<div className={"relative ".concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
+                case 3: return [2 /*return*/, (<div className={"relative ".concat(ts(effectiveTheme, "containerStyle"), " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
 
             {/*<img src={imgUrl} alt={alt && t(alt)}*/}
             {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
             {_p.sent()}
 
-            <div className={"".concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.innerContainerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
+            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"), " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.innerContainerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
                 <div className="space-y-2">
                     {block.title &&
-                            <h2 className={"".concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.titleStyle) === null || _g === void 0 ? void 0 : _g.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                            <h2 className={"".concat(ts(effectiveTheme, "titleStyle"), " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.titleStyle) === null || _g === void 0 ? void 0 : _g.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                     {block.subTitle &&
-                            <h2 className={"".concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.subTitleStyle) === null || _j === void 0 ? void 0 : _j.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                            <h2 className={"".concat(ts(effectiveTheme, "subTitleStyle"), " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.subTitleStyle) === null || _j === void 0 ? void 0 : _j.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                     {paragraphs}
 
                 </div>
                 {block.footer &&
-                            <div className={"".concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.footerContainerStyle) === null || _l === void 0 ? void 0 : _l.decoration)}>
-                        <button type="button" className={"".concat((_m = effectiveTheme.footerButtonStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerButtonStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
+                            <div className={"".concat(ts(effectiveTheme, "footerContainerStyle"), " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.footerContainerStyle) === null || _l === void 0 ? void 0 : _l.decoration)}>
+                        <button type="button" className={"".concat(ts(effectiveTheme, "footerButtonStyle"), " ").concat((_m = effectiveTheme.footerButtonStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerButtonStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
                             <span dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
                         </button>
                     </div>}

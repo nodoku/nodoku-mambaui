@@ -39,6 +39,10 @@ import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
+import { ts } from "nodoku-core";
+var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
+var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
+var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 export function HeroOneImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
@@ -58,9 +62,9 @@ export function HeroOneImpl(props) {
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
-                            paragraphStyle: effectiveTheme.paragraphStyle,
-                            codeHighlightTheme: effectiveTheme.codeHighlightTheme,
-                            listTheme: effectiveTheme.listTheme,
+                            paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
+                            codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
+                            listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                             defaultThemeName: defaultThemeName,
                             i18nextProvider: i18nextProvider
                         })];
@@ -77,21 +81,21 @@ export function HeroOneImpl(props) {
                         })];
                 case 3:
                     backgrounds = _o.sent();
-                    return [2 /*return*/, (<section className={"relative ".concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
+                    return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"), " ").concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
 
             {backgrounds}
 
-            <div className={"".concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
+            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"), " ").concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
                 {block.title &&
-                                <h1 className={"".concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                                <h1 className={"".concat(ts(effectiveTheme, "titleStyle"), " ").concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                 {block.subTitle &&
-                                <h3 className={"".concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                                <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"), " ").concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                 {paragraphs}
 
                 {block.footer &&
-                                <div className={"".concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
-                        <button type={"button"} className={"".concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)} dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
+                                <div className={"".concat(ts(effectiveTheme, "footerContainerStyle"), " ").concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
+                        <button type={"button"} className={"".concat(ts(effectiveTheme, "footerStyle"), " ").concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)} dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
                     </div>}
             </div>
         </section>)];

@@ -1,6 +1,7 @@
 import {JSX} from "react";
 import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {FaqHeaderTheme} from "./faq-header-theme";
+import {ts} from "nodoku-core";
 
 
 export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, void>): Promise<JSX.Element> {
@@ -31,14 +32,14 @@ export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, 
 
     return (
         <section
-            className={`${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
-            <div className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
+            className={`${ts(effectiveTheme, "containerStyle")} ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
+            <div className={`${ts(effectiveTheme, "innerContainerStyle")} ${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 {block.title &&
-                    <h2 className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
+                    <h2 className={`${ts(effectiveTheme, "titleStyle")} ${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
                         dangerouslySetInnerHTML={{__html: t(block.title)}}/>
                 }
                 {block.subTitle &&
-                    <h4 className={`${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
+                    <h4 className={`${ts(effectiveTheme, "subTitleStyle")} ${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
                         dangerouslySetInnerHTML={{__html: t(block.subTitle)}}/>
                 }
             </div>

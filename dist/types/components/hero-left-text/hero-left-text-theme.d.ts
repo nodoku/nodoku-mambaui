@@ -3,6 +3,7 @@ import { NodokuComponents } from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import { ImageStyle } from "nodoku-core";
+import ParagraphTheme = NodokuComponents.ParagraphTheme;
 export declare class HeroLeftTextTheme {
     className?: string;
     bgImageStyle?: ThemeStyle;
@@ -14,7 +15,7 @@ export declare class HeroLeftTextTheme {
     contentContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ThemeStyle;
+    paragraphStyle?: ParagraphTheme;
     footerContainerStyle?: ThemeStyle;
     footerStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;

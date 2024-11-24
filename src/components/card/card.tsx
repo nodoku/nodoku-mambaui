@@ -3,6 +3,10 @@ import {CardTheme} from "./card-theme";
 import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import Paragraphs = NodokuComponents.Paragraphs;
+import {ts} from "nodoku-core";
+import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
+import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
+import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 
 
 export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Promise<JSX.Element> {
@@ -38,28 +42,28 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
     const paragraphs = await Paragraphs({
         lng: lng,
         blockParagraphs: block.paragraphs,
-        paragraphStyle: effectiveTheme.paragraphStyle,
-        codeHighlightTheme: effectiveTheme.codeHighlightTheme!,
-        listTheme: effectiveTheme.listTheme!,
+        paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
+        codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
+        listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
         defaultThemeName: defaultThemeName,
         i18nextProvider: i18nextProvider
     })
 
     return (
-        <div className={`relative ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
+        <div className={`relative ${ts(effectiveTheme, "containerStyle")} ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
 
             {/*<img src={imgUrl} alt={alt && t(alt)}*/}
             {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
             {await imageProvider({url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle})}
 
-            <div className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
+            <div className={`${ts(effectiveTheme, "innerContainerStyle")} ${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 <div className="space-y-2">
                     {block.title &&
-                        <h2 className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
+                        <h2 className={`${ts(effectiveTheme, "titleStyle")} ${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
                             dangerouslySetInnerHTML={{__html: t(block.title)}} />
                     }
                     {block.subTitle &&
-                        <h2 className={`${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
+                        <h2 className={`${ts(effectiveTheme, "subTitleStyle")} ${effectiveTheme.subTitleStyle?.base} ${effectiveTheme.subTitleStyle?.decoration}`}
                             dangerouslySetInnerHTML={{__html: t(block.subTitle)}} />
                     }
 
@@ -67,9 +71,9 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
 
                 </div>
                 {block.footer &&
-                    <div className={`${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
+                    <div className={`${ts(effectiveTheme, "footerContainerStyle")} ${effectiveTheme.footerContainerStyle?.base} ${effectiveTheme.footerContainerStyle?.decoration}`}>
                         <button type="button"
-                                className={`${effectiveTheme.footerButtonStyle?.base} ${effectiveTheme.footerButtonStyle?.decoration}`}>
+                                className={`${ts(effectiveTheme, "footerButtonStyle")} ${effectiveTheme.footerButtonStyle?.base} ${effectiveTheme.footerButtonStyle?.decoration}`}>
                             <span dangerouslySetInnerHTML={{__html: t(block.footer)}}/>
                         </button>
                     </div>

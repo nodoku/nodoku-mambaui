@@ -2,6 +2,7 @@ import {ThemeStyle} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
+import ParagraphTheme = NodokuComponents.ParagraphTheme;
 
 export class FaqHeaderTheme {
 
@@ -15,7 +16,7 @@ export class FaqHeaderTheme {
     contentContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ThemeStyle;
+    paragraphStyle?: ParagraphTheme;
     footerContainerStyle?: ThemeStyle;
     footerStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;

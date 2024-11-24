@@ -3,6 +3,10 @@ import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {FaqOneQuestionTheme} from "./faq-one-question-theme";
 import {NodokuComponents} from "nodoku-components";
 import Paragraphs = NodokuComponents.Paragraphs;
+import {ts} from "nodoku-core";
+import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
+import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
+import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 
 
 export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuestionTheme, void>): Promise<JSX.Element> {
@@ -42,11 +46,11 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
     // const imgUrl = await imageUrlProvider(t(url.key, url.ns));
 
     return (
-        <section className={`relative ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
-            <div className={`${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
+        <section className={`relative ${ts(effectiveTheme, "containerStyle")} ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
+            <div className={`${ts(effectiveTheme, "innerContainerStyle")} ${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
                 <details open={false}>
                     {block.title &&
-                        <summary className={`${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
+                        <summary className={`${ts(effectiveTheme, "titleStyle")} ${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
                              dangerouslySetInnerHTML={{__html: t(block.title)}} />
                     }
                     {/*<div className="">*/}
@@ -57,9 +61,9 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
                     {await Paragraphs({
                         lng: lng,
                         blockParagraphs: block.paragraphs,
-                        paragraphStyle: effectiveTheme.paragraphStyle,
-                        codeHighlightTheme: effectiveTheme.codeHighlightTheme!,
-                        listTheme: effectiveTheme.listTheme!,
+                        paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
+                        codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
+                        listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                         defaultThemeName: defaultThemeName,
                         i18nextProvider: i18nextProvider
                     })}

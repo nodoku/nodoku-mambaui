@@ -3,6 +3,7 @@ import {ExtendedThemeStyle} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ListCompTheme = NodokuComponents.ListCompTheme;
+import ParagraphTheme = NodokuComponents.ParagraphTheme;
 
 export class HeroOneTheme {
 
@@ -13,7 +14,7 @@ export class HeroOneTheme {
     bgColorStyle?: ExtendedThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ThemeStyle;
+    paragraphStyle?: ParagraphTheme;
     footerContainerStyle?: ThemeStyle;
     footerStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;
