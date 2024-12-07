@@ -4,7 +4,7 @@ import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
 
-export class FaqOneQuestionTheme {
+export type FaqOneQuestionTheme = {
 
     className?: string;
     bgImageStyle?: ThemeStyle;
@@ -18,10 +18,11 @@ export class FaqOneQuestionTheme {
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
 
-    static defaultTheme: FaqOneQuestionTheme = {
+}
 
-    }
+export const defaultTheme: FaqOneQuestionTheme = {
 
 }
 
-export default FaqOneQuestionTheme.defaultTheme;
+
+// export default FaqOneQuestionTheme.defaultTheme;

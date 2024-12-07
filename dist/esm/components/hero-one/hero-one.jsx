@@ -34,7 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { HeroOneTheme } from "./hero-one-theme";
 import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
@@ -43,22 +42,22 @@ import { ts } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
+import { defaultTheme } from "./hero-one-theme";
 export function HeroOneImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-        return __generator(this, function (_o) {
-            switch (_o.label) {
+        var rowIndex, componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
-                    effectiveTheme = mergeTheme(theme, HeroOneTheme.defaultTheme);
+                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_o.sent()).t;
+                    t = (_a.sent()).t;
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
@@ -69,34 +68,33 @@ export function HeroOneImpl(props) {
                             i18nextProvider: i18nextProvider
                         })];
                 case 2:
-                    paragraphs = _o.sent();
+                    paragraphs = _a.sent();
                     return [4 /*yield*/, Backgrounds({
                             lng: lng,
                             defaultThemeName: defaultThemeName,
                             bgColorStyle: effectiveTheme.bgColorStyle,
                             bgImageStyle: effectiveTheme.bgImageStyle,
-                            i18nextProvider: i18nextProvider,
-                            // bgImageUrl: block.bgImageUrl,
-                            // imageUrlProvider: imageUrlProvider
+                            i18nextProvider: i18nextProvider
                         })];
                 case 3:
-                    backgrounds = _o.sent();
-                    return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"), " ").concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
+                    backgrounds = _a.sent();
+                    return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
 
             {backgrounds}
 
-            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"), " ").concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
+            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 {block.title &&
-                                <h1 className={"".concat(ts(effectiveTheme, "titleStyle"), " ").concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                                <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
                 {block.subTitle &&
-                                <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"), " ").concat((_g = effectiveTheme.subTitleStyle) === null || _g === void 0 ? void 0 : _g.base, " ").concat((_h = effectiveTheme.subTitleStyle) === null || _h === void 0 ? void 0 : _h.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                                <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                 {paragraphs}
 
-                {block.footer &&
-                                <div className={"".concat(ts(effectiveTheme, "footerContainerStyle"), " ").concat((_j = effectiveTheme.footerContainerStyle) === null || _j === void 0 ? void 0 : _j.base, " ").concat((_k = effectiveTheme.footerContainerStyle) === null || _k === void 0 ? void 0 : _k.decoration)}>
-                        <button type={"button"} className={"".concat(ts(effectiveTheme, "footerStyle"), " ").concat((_l = effectiveTheme.footerStyle) === null || _l === void 0 ? void 0 : _l.base, " ").concat((_m = effectiveTheme.footerStyle) === null || _m === void 0 ? void 0 : _m.decoration)} dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
-                    </div>}
+                {block.callToActions.map(function (cta, i) { return (<div key={"hero-one-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} className={"".concat(ts(effectiveTheme, "footerContainerStyle"))}>
+                        <a href={t(cta.ctaUrl)}>
+                            <button type={"button"} className={"".concat(ts(effectiveTheme, "footerStyle"))} dangerouslySetInnerHTML={{ __html: t(cta.ctaTitle || cta.ctaUrl) }}/>
+                        </a>
+                    </div>); })}
             </div>
         </section>)];
             }

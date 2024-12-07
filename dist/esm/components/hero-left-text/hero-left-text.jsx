@@ -34,7 +34,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { HeroLeftTextTheme } from "./hero-left-text-theme";
 import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
@@ -43,22 +42,22 @@ import { ts } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
+import { defaultTheme } from "./hero-left-text-theme";
 export function HeroLeftTextImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, imageProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs, backgrounds;
-        var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
-        return __generator(this, function (_t) {
-            switch (_t.label) {
+        var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs, backgrounds;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageProvider = props.imageProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
-                    effectiveTheme = mergeTheme(theme, HeroLeftTextTheme.defaultTheme);
+                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageProvider = props.imageProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_t.sent()).t;
+                    t = (_b.sent()).t;
                     _a = block.images[0], url = _a.url, alt = _a.alt;
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
@@ -70,44 +69,38 @@ export function HeroLeftTextImpl(props) {
                             i18nextProvider: i18nextProvider
                         })];
                 case 2:
-                    paragraphs = _t.sent();
+                    paragraphs = _b.sent();
                     return [4 /*yield*/, Backgrounds({
                             lng: lng,
                             defaultThemeName: defaultThemeName,
                             bgColorStyle: effectiveTheme.bgColorStyle,
                             bgImageStyle: effectiveTheme.bgImageStyle,
-                            i18nextProvider: i18nextProvider,
-                            // bgImageUrl: block.bgImageUrl,
-                            // imageUrlProvider: imageUrlProvider
+                            i18nextProvider: i18nextProvider
                         })];
                 case 3:
-                    backgrounds = _t.sent();
+                    backgrounds = _b.sent();
                     return [4 /*yield*/, imageProvider({ url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle })];
-                case 4: return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"), " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.base, " ").concat((_c = effectiveTheme.containerStyle) === null || _c === void 0 ? void 0 : _c.decoration)}>
+                case 4: return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
             {backgrounds}
 
-            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"), " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.base, " ").concat((_e = effectiveTheme.innerContainerStyle) === null || _e === void 0 ? void 0 : _e.decoration)}>
-                <div className={"".concat(ts(effectiveTheme, "contentContainerStyle"), " ").concat((_f = effectiveTheme.contentContainerStyle) === null || _f === void 0 ? void 0 : _f.base, " ").concat((_g = effectiveTheme.contentContainerStyle) === null || _g === void 0 ? void 0 : _g.decoration)}>
+            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
+                <div className={"".concat(ts(effectiveTheme, "contentContainerStyle"))}>
                     {block.title &&
-                            <h1 className={"".concat(ts(effectiveTheme, "titleStyle"), " ").concat((_h = effectiveTheme.titleStyle) === null || _h === void 0 ? void 0 : _h.base, " ").concat((_j = effectiveTheme.titleStyle) === null || _j === void 0 ? void 0 : _j.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                            <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
 
                     {block.subTitle &&
-                            <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"), " ").concat((_k = effectiveTheme.subTitleStyle) === null || _k === void 0 ? void 0 : _k.base, " ").concat((_l = effectiveTheme.subTitleStyle) === null || _l === void 0 ? void 0 : _l.decoration)} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                            <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
 
                     {paragraphs}
 
-                    {block.footer &&
-                            <div className={"".concat(ts(effectiveTheme, "footerContainerStyle"), " ").concat((_m = effectiveTheme.footerContainerStyle) === null || _m === void 0 ? void 0 : _m.base, " ").concat((_o = effectiveTheme.footerContainerStyle) === null || _o === void 0 ? void 0 : _o.decoration)}>
-                            <a rel="noopener noreferrer" href="#" className={"".concat(ts(effectiveTheme, "footerStyle"), " ").concat((_p = effectiveTheme.footerStyle) === null || _p === void 0 ? void 0 : _p.base, " ").concat((_q = effectiveTheme.footerStyle) === null || _q === void 0 ? void 0 : _q.decoration)}>
-                                <span dangerouslySetInnerHTML={{ __html: t(block.footer) }}/>
-
+                    {block.callToActions.map(function (cta, i) { return (<div key={"hero-left-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} className={"".concat(ts(effectiveTheme, "ctaContainerStyle"))}>
+                            <a rel="noopener noreferrer" href={t(cta.ctaUrl)} className={"".concat(ts(effectiveTheme, "ctaStyle"))}>
+                                <span dangerouslySetInnerHTML={{ __html: t(cta.ctaTitle || cta.ctaUrl) }}/>
                             </a>
-                        </div>}
+                        </div>); })}
                 </div>
-                <div className={"".concat(ts(effectiveTheme, "imageContainerStyle"), " ").concat((_r = effectiveTheme.imageContainerStyle) === null || _r === void 0 ? void 0 : _r.base, " ").concat((_s = effectiveTheme.imageContainerStyle) === null || _s === void 0 ? void 0 : _s.decoration)}>
-                    {/*<img src={imgUrl} alt=""*/}
-                    {/*     className={`${effectiveTheme.imageStyle?.base} ${effectiveTheme.imageStyle?.decoration}`}/>*/}
-                    {_t.sent()}
+                <div className={"".concat(ts(effectiveTheme, "imageContainerStyle"))}>
+                    {_b.sent()}
                 </div>
             </div>
         </section>)];

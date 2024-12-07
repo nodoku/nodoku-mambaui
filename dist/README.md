@@ -1,11 +1,13 @@
 
 <!-- TOC -->
-* [Getting started](#getting-started)
-* [The _nodoku-flowbite_ components](#the-_nodoku-flowbite_-components)
-  * [flowbite/card](#flowbitecard)
-  * [flowbite/horizontal-card](#flowbitehorizontal-card)
-  * [flowbite/jumbotron](#flowbitejumbotron)
-  * [flowbite/carousel](#flowbitecarousel)
+* [Prerequisites](#prerequisites)
+* [The _nodoku-mambaui_ components](#the-_nodoku-mambaui_-components)
+  * [mambaui/hero-one](#mambauihero-one)
+  * [mambaui/hero-two](#mambauihero-two)
+  * [mambaui/hero-left-text](#mambauihero-left-text)
+  * [mambaui/hero-right-text](#mambauihero-right-text)
+  * [mambaui/faq-header and mambaui/faq-one-question](#mambauifaq-header-and-mambauifaq-one-question)
+  * [mambaui/card](#mambauicard)
 <!-- TOC -->
 
 **_nodoku-mambaui_** is a set of visual components to be used with the [Nodoku static site generator](https://github.com/nodoku/nodoku-core).

@@ -1,8 +1,2 @@
-var HeroLeftTextTheme = /** @class */ (function () {
-    function HeroLeftTextTheme() {
-    }
-    HeroLeftTextTheme.defaultTheme = {};
-    return HeroLeftTextTheme;
-}());
-export { HeroLeftTextTheme };
-export default HeroLeftTextTheme.defaultTheme;
+export var defaultTheme = {};
+// export default HeroLeftTextTheme.defaultTheme;

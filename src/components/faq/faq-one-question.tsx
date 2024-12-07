@@ -7,6 +7,7 @@ import {ts} from "nodoku-core";
 import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
+import {defaultTheme} from "./faq-one-question-theme";
 
 
 export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuestionTheme, void>): Promise<JSX.Element> {
@@ -17,14 +18,14 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
         theme,
         themes,
         lng,
-        // imageUrlProvider,
         i18nextProvider,
-        defaultThemeName} = props;
+        defaultThemeName
+    } = props;
 
     // console.log("content card ", JSON.stringify(content));
     // console.log("visual card ", JSON.stringify(theme));
 
-    let effectiveTheme: FaqOneQuestionTheme = mergeTheme(theme, FaqOneQuestionTheme.defaultTheme);
+    let effectiveTheme: FaqOneQuestionTheme = mergeTheme(theme, defaultTheme);
     if (themes.length > 0) {
         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme)
     }
@@ -33,30 +34,16 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
 
     const {t} = await i18nextProvider(lng);
 
-    // var style: React.CSSProperties = block.bgImageUrl ? {
-    //     backgroundImage: `url(${t(block.bgImageUrl)})`
-    // } : {};
-
     // console.log("effective theme", effectiveTheme)
 
-    // const {url, alt} = block.images[0];
-
-    const absZero = "absolute top-0 left-0 right-0 bottom-0";
-
-    // const imgUrl = await imageUrlProvider(t(url.key, url.ns));
-
     return (
-        <section className={`relative ${ts(effectiveTheme, "containerStyle")} ${effectiveTheme.containerStyle?.base} ${effectiveTheme.containerStyle?.decoration}`}>
-            <div className={`${ts(effectiveTheme, "innerContainerStyle")} ${effectiveTheme.innerContainerStyle?.base} ${effectiveTheme.innerContainerStyle?.decoration}`}>
+        <section className={`relative ${ts(effectiveTheme, "containerStyle")}`}>
+            <div className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
                 <details open={false}>
                     {block.title &&
-                        <summary className={`${ts(effectiveTheme, "titleStyle")} ${effectiveTheme.titleStyle?.base} ${effectiveTheme.titleStyle?.decoration}`}
+                        <summary className={`${ts(effectiveTheme, "titleStyle")}`}
                              dangerouslySetInnerHTML={{__html: t(block.title)}} />
                     }
-                    {/*<div className="">*/}
-                    {/*    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni, quas*/}
-                    {/*        animi enim veritatis deleniti ex. Impedit.</p>*/}
-                    {/*</div>*/}
 
                     {await Paragraphs({
                         lng: lng,

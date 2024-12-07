@@ -1,10 +1,9 @@
-import { ThemeStyle } from "nodoku-core";
+import { ThemeStyle, ImageStyle } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
-import { ImageStyle } from "nodoku-core";
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
-export declare class HeroRightTextTheme {
+export type HeroRightTextTheme = {
     className?: string;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
@@ -20,7 +19,5 @@ export declare class HeroRightTextTheme {
     footerStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
-    static defaultTheme: HeroRightTextTheme;
-}
-declare const _default: HeroRightTextTheme;
-export default _default;
+};
+export declare const defaultTheme: HeroRightTextTheme;

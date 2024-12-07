@@ -1,10 +1,9 @@
-import { ThemeStyle } from "nodoku-core";
-import { ExtendedThemeStyle } from "nodoku-core";
+import { ExtendedThemeStyle, ThemeStyle } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
-export declare class HeroOneTheme {
+export type HeroOneTheme = {
     className?: string;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
@@ -17,7 +16,5 @@ export declare class HeroOneTheme {
     footerStyle?: ThemeStyle;
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
-    static defaultTheme: HeroOneTheme;
-}
-declare const _default: HeroOneTheme;
-export default _default;
+};
+export declare const defaultTheme: HeroOneTheme;

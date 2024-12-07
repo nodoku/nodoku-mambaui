@@ -35,32 +35,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { mergeTheme } from "nodoku-core";
-import { FaqOneQuestionTheme } from "./faq-one-question-theme";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
 import { ts } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
+import { defaultTheme } from "./faq-one-question-theme";
 export function FaqOneQuestionImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, 
-        // imageUrlProvider,
-        i18nextProvider, defaultThemeName, effectiveTheme, block, t, absZero;
-        var _a, _b, _c, _d, _e, _f;
-        return __generator(this, function (_g) {
-            switch (_g.label) {
+        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
                     componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
-                    effectiveTheme = mergeTheme(theme, FaqOneQuestionTheme.defaultTheme);
+                    effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
                     return [4 /*yield*/, i18nextProvider(lng)];
                 case 1:
-                    t = (_g.sent()).t;
-                    absZero = "absolute top-0 left-0 right-0 bottom-0";
+                    t = (_a.sent()).t;
                     return [4 /*yield*/, Paragraphs({
                             lng: lng,
                             blockParagraphs: block.paragraphs,
@@ -71,18 +67,14 @@ export function FaqOneQuestionImpl(props) {
                             i18nextProvider: i18nextProvider
                         })];
                 case 2: 
-                // const imgUrl = await imageUrlProvider(t(url.key, url.ns));
-                return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"), " ").concat((_a = effectiveTheme.containerStyle) === null || _a === void 0 ? void 0 : _a.base, " ").concat((_b = effectiveTheme.containerStyle) === null || _b === void 0 ? void 0 : _b.decoration)}>
-            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"), " ").concat((_c = effectiveTheme.innerContainerStyle) === null || _c === void 0 ? void 0 : _c.base, " ").concat((_d = effectiveTheme.innerContainerStyle) === null || _d === void 0 ? void 0 : _d.decoration)}>
+                // console.log("effective theme", effectiveTheme)
+                return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
+            <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 <details open={false}>
                     {block.title &&
-                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"), " ").concat((_e = effectiveTheme.titleStyle) === null || _e === void 0 ? void 0 : _e.base, " ").concat((_f = effectiveTheme.titleStyle) === null || _f === void 0 ? void 0 : _f.decoration)} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
-                    {/*<div className="">*/}
-                    {/*    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde neque in fugiat magni, quas*/}
-                    {/*        animi enim veritatis deleniti ex. Impedit.</p>*/}
-                    {/*</div>*/}
+                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
 
-                    {_g.sent()}
+                    {_a.sent()}
                 </details>
             </div>
         </section>)];

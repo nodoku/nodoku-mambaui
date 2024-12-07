@@ -1,8 +1,2 @@
-var HeroOneTheme = /** @class */ (function () {
-    function HeroOneTheme() {
-    }
-    HeroOneTheme.defaultTheme = {};
-    return HeroOneTheme;
-}());
-export { HeroOneTheme };
-export default HeroOneTheme.defaultTheme;
+export var defaultTheme = {};
+// export default HeroOneTheme.defaultTheme;

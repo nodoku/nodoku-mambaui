@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=./visual-schema.json
+
 bgImageStyle:
     base: ''
     decoration: ''
@@ -22,10 +24,10 @@ subTitleStyle:
 paragraphStyle:
     base: px-4 pb-4 text-lg
     decoration: ''
-footerContainerStyle:
+ctaContainerStyle:
     base: ''
     decoration: ''
-footerStyle:
+ctaStyle:
     base: ''
     decoration: ''
 codeHighlightTheme:

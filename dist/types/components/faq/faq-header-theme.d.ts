@@ -1,25 +1,11 @@
 import { ThemeStyle } from "nodoku-core";
-import { NodokuComponents } from "nodoku-components";
-import ListCompTheme = NodokuComponents.ListCompTheme;
-import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
-import ParagraphTheme = NodokuComponents.ParagraphTheme;
-export declare class FaqHeaderTheme {
+export type FaqHeaderTheme = {
     className?: string;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
-    imageContainerStyle?: ThemeStyle;
-    imageStyle?: ThemeStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
-    contentContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ParagraphTheme;
-    footerContainerStyle?: ThemeStyle;
-    footerStyle?: ThemeStyle;
-    codeHighlightTheme?: HighlightedCodeTheme;
-    listTheme?: ListCompTheme;
-    static defaultTheme: FaqHeaderTheme;
-}
-declare const _default: FaqHeaderTheme;
-export default _default;
+};
+export declare const defaultTheme: FaqHeaderTheme;

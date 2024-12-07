@@ -1,11 +1,10 @@
-import {NdDefaultThemeName, ThemeStyle} from "nodoku-core";
-import {ExtendedThemeStyle} from "nodoku-core";
+import {ExtendedThemeStyle, ThemeStyle} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
 
-export class HeroTwoTheme {
+export type HeroTwoTheme = {
 
     className?: string;
     containerStyle?: ThemeStyle;
@@ -20,10 +19,10 @@ export class HeroTwoTheme {
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
 
-    static defaultTheme: HeroTwoTheme = {
+}
 
-    }
+export const defaultTheme: HeroTwoTheme = {
 
 }
 
-export default HeroTwoTheme.defaultTheme;
+// export default HeroTwoTheme.defaultTheme;

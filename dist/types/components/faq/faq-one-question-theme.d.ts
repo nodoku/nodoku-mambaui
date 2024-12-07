@@ -3,7 +3,7 @@ import { NodokuComponents } from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
-export declare class FaqOneQuestionTheme {
+export type FaqOneQuestionTheme = {
     className?: string;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
@@ -15,7 +15,5 @@ export declare class FaqOneQuestionTheme {
     paragraphStyle?: ParagraphTheme;
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
-    static defaultTheme: FaqOneQuestionTheme;
-}
-declare const _default: FaqOneQuestionTheme;
-export default _default;
+};
+export declare const defaultTheme: FaqOneQuestionTheme;
