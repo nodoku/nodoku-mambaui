@@ -12,7 +12,7 @@ export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, 
         theme,
         themes,
         lng,
-        i18nextProvider
+        i18nextTrustedHtmlProvider
     } = props;
 
     // console.log("content card ", JSON.stringify(content));
@@ -25,7 +25,7 @@ export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, 
 
     const block: NdContentBlock = content[0];
 
-    const {t} = await i18nextProvider(lng);
+    const {t} = await i18nextTrustedHtmlProvider(lng);
 
     // console.log("effective theme", effectiveTheme)
 
@@ -34,11 +34,11 @@ export async function FaqHeaderImpl(props: NdSkinComponentProps<FaqHeaderTheme, 
             <div className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
                 {block.title &&
                     <h2 className={`${ts(effectiveTheme, "titleStyle")}`}
-                        dangerouslySetInnerHTML={{__html: t(block.title)}}/>
+                        dangerouslySetInnerHTML={t(block.title)}/>
                 }
                 {block.subTitle &&
                     <h4 className={`${ts(effectiveTheme, "subTitleStyle")}`}
-                        dangerouslySetInnerHTML={{__html: t(block.subTitle)}}/>
+                        dangerouslySetInnerHTML={t(block.subTitle)}/>
                 }
             </div>
         </section>

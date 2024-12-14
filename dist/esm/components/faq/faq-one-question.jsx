@@ -44,17 +44,17 @@ var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import { defaultTheme } from "./faq-one-question-theme";
 export function FaqOneQuestionImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t;
+        var componentIndex, content, theme, themes, lng, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, block, t;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
-                    return [4 /*yield*/, i18nextProvider(lng)];
+                    return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
                     t = (_a.sent()).t;
                     return [4 /*yield*/, Paragraphs({
@@ -64,7 +64,7 @@ export function FaqOneQuestionImpl(props) {
                             codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
                             listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                             defaultThemeName: defaultThemeName,
-                            i18nextProvider: i18nextProvider
+                            i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
                         })];
                 case 2: 
                 // console.log("effective theme", effectiveTheme)
@@ -72,7 +72,7 @@ export function FaqOneQuestionImpl(props) {
             <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 <details open={false}>
                     {block.title &&
-                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
 
                     {_a.sent()}
                 </details>

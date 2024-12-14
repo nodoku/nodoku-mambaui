@@ -18,7 +18,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
         theme,
         themes,
         lng,
-        i18nextProvider,
+        i18nextTrustedHtmlProvider,
         defaultThemeName
     } = props;
 
@@ -32,7 +32,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
 
     const block: NdContentBlock = content[0];
 
-    const {t} = await i18nextProvider(lng);
+    const {t} = await i18nextTrustedHtmlProvider(lng);
 
     // console.log("effective theme", effectiveTheme)
 
@@ -42,7 +42,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
                 <details open={false}>
                     {block.title &&
                         <summary className={`${ts(effectiveTheme, "titleStyle")}`}
-                             dangerouslySetInnerHTML={{__html: t(block.title)}} />
+                             dangerouslySetInnerHTML={t(block.title)} />
                     }
 
                     {await Paragraphs({
@@ -52,7 +52,7 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
                         codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
                         listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                         defaultThemeName: defaultThemeName,
-                        i18nextProvider: i18nextProvider
+                        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
                     })}
                 </details>
             </div>

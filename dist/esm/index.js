@@ -41,6 +41,7 @@ import { HeroLeftTextImpl } from "./components/hero-left-text/hero-left-text";
 import { HeroRightTextImpl } from "./components/hero-right-text/hero-right-text";
 import { FaqOneQuestionImpl } from "./components/faq/faq-one-question";
 import { FaqHeaderImpl } from "./components/faq/faq-header";
+import { FooterFourImpl } from "./components/footer-four/footer-four";
 export var NodokuMambaUi;
 (function (NodokuMambaUi) {
     function Card(props) {
@@ -99,4 +100,12 @@ export var NodokuMambaUi;
         });
     }
     NodokuMambaUi.FaqHeader = FaqHeader;
+    function FooterFour(props) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, FooterFourImpl(props)];
+            });
+        });
+    }
+    NodokuMambaUi.FooterFour = FooterFour;
 })(NodokuMambaUi || (NodokuMambaUi = {}));

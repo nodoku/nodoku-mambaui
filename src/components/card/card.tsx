@@ -9,6 +9,7 @@ import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultThem
 import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import {NdCallToAction} from "nodoku-core";
 import {defaultTheme} from "./card-theme";
+import {tsi} from "nodoku-core";
 
 
 export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Promise<JSX.Element> {
@@ -21,7 +22,7 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
         themes,
         lng,
         imageProvider,
-        i18nextProvider,
+        i18nextTrustedHtmlProvider,
         defaultThemeName} = props;
 
     // console.log("content card ", JSON.stringify(content));
@@ -34,7 +35,7 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
 
     const block: NdContentBlock = content[0];
 
-    const {t} = await i18nextProvider(lng);
+    const {t} = await i18nextTrustedHtmlProvider(lng);
 
     // console.log("effective theme", effectiveTheme)
 
@@ -47,38 +48,38 @@ export async function CardImpl(props: NdSkinComponentProps<CardTheme, void>): Pr
         codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
         listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
         defaultThemeName: defaultThemeName,
-        i18nextProvider: i18nextProvider
+        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
     })
 
     return (
         <div key={`card-${rowIndex}-${componentIndex}`} className={`relative ${ts(effectiveTheme, "containerStyle")}`}>
 
-            {await imageProvider({url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle})}
+            {await imageProvider({url: t(url).__html as string, alt: alt && t(alt).__html as string, imageStyle: effectiveTheme.imageStyle})}
 
-            <div key={`card-${rowIndex}-${componentIndex}-innerContainer`} className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
+            <div key={`card-${rowIndex}-${componentIndex}-innerContainer`}
+                 className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
                 <div className="space-y-2">
                     {block.title &&
                         <h2 className={`${ts(effectiveTheme, "titleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.title)}} />
+                            dangerouslySetInnerHTML={t(block.title)}/>
                     }
                     {block.subTitle &&
                         <h2 className={`${ts(effectiveTheme, "subTitleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.subTitle)}} />
+                            dangerouslySetInnerHTML={t(block.subTitle)}/>
                     }
 
                     {paragraphs}
 
                 </div>
-                {block.callToActions.map((cta: NdCallToAction, i) => (
-                    <div key={`card-${rowIndex}-${componentIndex}-cta-${i}`} className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
-                        <a href={t(cta.ctaUrl)}>
-                             <button type="button"
-                                    className={`${ts(effectiveTheme, "ctaButtonStyle")}`}>
-                                <span dangerouslySetInnerHTML={{__html: t(cta.ctaTitle || cta.ctaUrl)}}/>
+                <div key={`card-${rowIndex}-${componentIndex}-cta-container`} className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
+                    {block.callToActions.map((cta: NdCallToAction, i) => (
+                        <a key={`card-${rowIndex}-${componentIndex}-cta-${i}`} href={t(cta.ctaUrl).__html as string} className={"flex flex-grow"}>
+                            <button type="button" className={`${tsi(effectiveTheme, "ctaButtonStyle", i)}`}>
+                                <span dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
                             </button>
                         </a>
-                    </div>))
-                }
+                    ))}
+                </div>
             </div>
         </div>
     )

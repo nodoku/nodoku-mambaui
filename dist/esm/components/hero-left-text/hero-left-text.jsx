@@ -38,24 +38,24 @@ import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
-import { ts } from "nodoku-core";
+import { ts, tsi } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import { defaultTheme } from "./hero-left-text-theme";
 export function HeroLeftTextImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs, backgrounds;
+        var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs, backgrounds;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageProvider = props.imageProvider, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, imageProvider = props.imageProvider, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
-                    return [4 /*yield*/, i18nextProvider(lng)];
+                    return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
                     t = (_b.sent()).t;
                     _a = block.images[0], url = _a.url, alt = _a.alt;
@@ -66,7 +66,7 @@ export function HeroLeftTextImpl(props) {
                             codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
                             listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                             defaultThemeName: defaultThemeName,
-                            i18nextProvider: i18nextProvider
+                            i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
                         })];
                 case 2:
                     paragraphs = _b.sent();
@@ -74,30 +74,29 @@ export function HeroLeftTextImpl(props) {
                             lng: lng,
                             defaultThemeName: defaultThemeName,
                             bgColorStyle: effectiveTheme.bgColorStyle,
-                            bgImageStyle: effectiveTheme.bgImageStyle,
-                            i18nextProvider: i18nextProvider
+                            bgImageStyle: effectiveTheme.bgImageStyle
                         })];
                 case 3:
                     backgrounds = _b.sent();
-                    return [4 /*yield*/, imageProvider({ url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle })];
+                    return [4 /*yield*/, imageProvider({ url: t(url).__html, alt: alt && t(alt).__html, imageStyle: effectiveTheme.imageStyle })];
                 case 4: return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
             {backgrounds}
 
             <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 <div className={"".concat(ts(effectiveTheme, "contentContainerStyle"))}>
                     {block.title &&
-                            <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                            <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
 
                     {block.subTitle &&
-                            <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                            <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={t(block.subTitle)}/>}
 
                     {paragraphs}
 
-                    {block.callToActions.map(function (cta, i) { return (<div key={"hero-left-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} className={"".concat(ts(effectiveTheme, "ctaContainerStyle"))}>
-                            <a rel="noopener noreferrer" href={t(cta.ctaUrl)} className={"".concat(ts(effectiveTheme, "ctaStyle"))}>
-                                <span dangerouslySetInnerHTML={{ __html: t(cta.ctaTitle || cta.ctaUrl) }}/>
-                            </a>
-                        </div>); })}
+                    <div key={"hero-left-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-container")} className={"".concat(ts(effectiveTheme, "ctaContainerStyle"))}>
+                        {block.callToActions.map(function (cta, i) { return (<a key={"hero-left-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} rel="noopener noreferrer" href={t(cta.ctaUrl).__html} className={"".concat(tsi(effectiveTheme, "ctaButtonStyle", i))}>
+                                <span dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
+                            </a>); })}
+                    </div>
                 </div>
                 <div className={"".concat(ts(effectiveTheme, "imageContainerStyle"))}>
                     {_b.sent()}

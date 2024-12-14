@@ -14,6 +14,8 @@ import {FaqOneQuestionTheme} from "./components/faq/faq-one-question-theme";
 import {FaqOneQuestionImpl} from "./components/faq/faq-one-question";
 import {FaqHeaderTheme} from "./components/faq/faq-header-theme";
 import {FaqHeaderImpl} from "./components/faq/faq-header";
+import {FooterFourTheme} from "./components/footer-four/footer-four-theme";
+import {FooterFourImpl} from "./components/footer-four/footer-four";
 
 export namespace NodokuMambaUi {
 
@@ -43,6 +45,10 @@ export namespace NodokuMambaUi {
 
     export async function FaqHeader(props: NdSkinComponentProps<FaqHeaderTheme, void>): Promise<JSX.Element> {
         return FaqHeaderImpl(props)
+    }
+
+    export async function FooterFour(props: NdSkinComponentProps<FooterFourTheme, void>): Promise<JSX.Element> {
+        return FooterFourImpl(props)
     }
 
 }

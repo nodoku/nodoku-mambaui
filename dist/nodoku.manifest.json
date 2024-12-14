@@ -42,6 +42,12 @@
       "defaultThemeFile": "./schemas/components/faq/header-default-theme.yml",
       "implementation": "FaqHeader",
       "numBlocks": 1
+    },
+    "mambaui/footer-four": {
+      "schemaFile": "./schemas/components/footer-four/visual-schema.json",
+      "defaultThemeFile": "./schemas/components/footer-four/default-theme.yml",
+      "implementation": "FooterFour",
+      "numBlocks": "unlimited"
     }
   }
 }

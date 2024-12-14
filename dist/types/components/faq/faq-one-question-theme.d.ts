@@ -7,9 +7,9 @@ export type FaqOneQuestionTheme = {
     className?: string;
     bgImageStyle?: ThemeStyle;
     bgColorStyle?: ThemeStyle;
-    imageContainerStyle?: ThemeStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
+    imageContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ParagraphTheme;

@@ -38,24 +38,24 @@ import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
 var Backgrounds = NodokuComponents.Backgrounds;
-import { ts } from "nodoku-core";
+import { ts, tsi } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import { defaultTheme } from "./hero-two-theme";
 export function HeroTwoImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var rowIndex, componentIndex, content, theme, themes, lng, i18nextProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
+        var rowIndex, componentIndex, content, theme, themes, lng, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, block, t, paragraphs, backgrounds;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider, defaultThemeName = props.defaultThemeName;
+                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider, defaultThemeName = props.defaultThemeName;
                     effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
-                    return [4 /*yield*/, i18nextProvider(lng)];
+                    return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
                     t = (_a.sent()).t;
                     return [4 /*yield*/, Paragraphs({
@@ -65,7 +65,7 @@ export function HeroTwoImpl(props) {
                             codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
                             listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
                             defaultThemeName: defaultThemeName,
-                            i18nextProvider: i18nextProvider
+                            i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
                         })];
                 case 2:
                     paragraphs = _a.sent();
@@ -73,8 +73,7 @@ export function HeroTwoImpl(props) {
                             lng: lng,
                             defaultThemeName: defaultThemeName,
                             bgColorStyle: effectiveTheme.bgColorStyle,
-                            bgImageStyle: effectiveTheme.bgImageStyle,
-                            i18nextProvider: i18nextProvider
+                            bgImageStyle: effectiveTheme.bgImageStyle
                         })];
                 case 3:
                     backgrounds = _a.sent();
@@ -83,18 +82,18 @@ export function HeroTwoImpl(props) {
             <div className={"".concat(ts(effectiveTheme, "containerStyle"))}>
                 <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                     {block.title &&
-                                <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                                <h1 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
 
                     {block.subTitle &&
-                                <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                                <h3 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={t(block.subTitle)}/>}
 
                     {paragraphs}
 
-                    {block.callToActions.map(function (cta, i) { return (<div key={"hero-right-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} className={"".concat(ts(effectiveTheme, "footerContainerStyle"))}>
-                            <a href={t(cta.ctaUrl)}>
-                                <button type={"button"} className={"".concat(ts(effectiveTheme, "footerStyle"))} dangerouslySetInnerHTML={{ __html: t(cta.ctaTitle || cta.ctaUrl) }}/>
-                            </a>
-                        </div>); })}
+                    <div className={"".concat(ts(effectiveTheme, "ctaContainerStyle"))}>
+                    {block.callToActions.map(function (cta, i) { return (<a key={"hero-right-text-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} href={t(cta.ctaUrl).__html}>
+                                <button type={"button"} className={"".concat(tsi(effectiveTheme, "ctaButtonStyle", i))} dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
+                            </a>); })}
+                    </div>
 
                 </div>
             </div>

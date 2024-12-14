@@ -39,26 +39,26 @@ import { ts } from "nodoku-core";
 import { defaultTheme } from "./faq-header-theme";
 export function FaqHeaderImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextProvider, effectiveTheme, block, t;
+        var componentIndex, content, theme, themes, lng, i18nextTrustedHtmlProvider, effectiveTheme, block, t;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextProvider = props.i18nextProvider;
+                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider;
                     effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
                     }
                     block = content[0];
-                    return [4 /*yield*/, i18nextProvider(lng)];
+                    return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
                     t = (_a.sent()).t;
                     // console.log("effective theme", effectiveTheme)
                     return [2 /*return*/, (<section className={"".concat(ts(effectiveTheme, "containerStyle"))}>
             <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 {block.title &&
-                                <h2 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.title) }}/>}
+                                <h2 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
                 {block.subTitle &&
-                                <h4 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={{ __html: t(block.subTitle) }}/>}
+                                <h4 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={t(block.subTitle)}/>}
             </div>
         </section>)];
             }

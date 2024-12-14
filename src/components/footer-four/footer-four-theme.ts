@@ -4,28 +4,23 @@ import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
 
-export type HeroLeftTextTheme = {
+export type FooterFourTheme = {
 
     className?: string;
-    bgImageStyle?: ThemeStyle;
-    bgColorStyle?: ThemeStyle;
-    imageContainerStyle?: ThemeStyle;
-    imageStyle?: ImageStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
     contentContainerStyle?: ThemeStyle;
-    titleStyle?: ThemeStyle;
+    imageStyle?: ImageStyle;
+    imageContainerStyle?: ThemeStyle;
+    brandNameStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ParagraphTheme;
-    ctaContainerStyle?: ThemeStyle;
-    ctaButtonStyle?: ThemeStyle[];
-    codeHighlightTheme?: HighlightedCodeTheme;
-    listTheme?: ListCompTheme;
+    sectionTitleStyle?: ThemeStyle
+    copyrightNoticeStyle?: ThemeStyle
 
 
 }
 
-export const defaultTheme: HeroLeftTextTheme = {
+export const defaultTheme: FooterFourTheme = {
 
 }
 

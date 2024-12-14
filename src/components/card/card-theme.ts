@@ -16,7 +16,7 @@ export type CardTheme = {
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ParagraphTheme;
     ctaContainerStyle?: ThemeStyle;
-    ctaButtonStyle?: ThemeStyle;
+    ctaButtonStyle?: ThemeStyle[];
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
 

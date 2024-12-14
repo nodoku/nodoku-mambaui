@@ -17,8 +17,8 @@ export type HeroRightTextTheme = {
     titleStyle?: ThemeStyle;
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ParagraphTheme;
-    footerContainerStyle?: ThemeStyle;
-    footerStyle?: ThemeStyle;
+    ctaContainerStyle?: ThemeStyle;
+    ctaButtonStyle?: ThemeStyle[];
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
 

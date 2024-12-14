@@ -4,7 +4,7 @@ import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import Paragraphs = NodokuComponents.Paragraphs;
 import Backgrounds = NodokuComponents.Backgrounds;
-import {ts} from "nodoku-core";
+import {ts, tsi} from "nodoku-core";
 import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
@@ -22,7 +22,7 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
         themes,
         lng,
         imageProvider,
-        i18nextProvider,
+        i18nextTrustedHtmlProvider,
         defaultThemeName
     } = props;
 
@@ -36,7 +36,7 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
 
     const block: NdContentBlock = content[0];
 
-    const {t} = await i18nextProvider(lng);
+    const {t} = await i18nextTrustedHtmlProvider(lng);
 
     // console.log("effective theme", effectiveTheme)
 
@@ -49,15 +49,14 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
         codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
         listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
         defaultThemeName: defaultThemeName,
-        i18nextProvider: i18nextProvider
+        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
     });
 
     const backgrounds = await Backgrounds({
         lng: lng,
         defaultThemeName: defaultThemeName,
         bgColorStyle: effectiveTheme.bgColorStyle,
-        bgImageStyle: effectiveTheme.bgImageStyle,
-        i18nextProvider: i18nextProvider
+        bgImageStyle: effectiveTheme.bgImageStyle
     });
 
     return (
@@ -70,26 +69,31 @@ export async function HeroLeftTextImpl(props: NdSkinComponentProps<HeroLeftTextT
                     className={`${ts(effectiveTheme, "contentContainerStyle")}`}>
                     {block.title &&
                         <h1 className={`${ts(effectiveTheme, "titleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.title)}}/>
+                            dangerouslySetInnerHTML={t(block.title)}/>
                     }
 
                     {block.subTitle &&
                         <h3 className={`${ts(effectiveTheme, "subTitleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.subTitle)}}/>
+                            dangerouslySetInnerHTML={t(block.subTitle)}/>
                     }
 
                     {paragraphs}
 
-                    {block.callToActions.map((cta: NdCallToAction, i) => (
-                        <div key={`hero-left-text-${rowIndex}-${componentIndex}-cta-${i}`} className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
-                            <a rel="noopener noreferrer" href={t(cta.ctaUrl)} className={`${ts(effectiveTheme, "ctaStyle")}`}>
-                                <span dangerouslySetInnerHTML={{__html: t(cta.ctaTitle || cta.ctaUrl)}}/>
+                    <div key={`hero-left-text-${rowIndex}-${componentIndex}-cta-container`}
+                         className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
+                        {block.callToActions.map((cta: NdCallToAction, i) => (
+
+                            <a key={`hero-left-text-${rowIndex}-${componentIndex}-cta-${i}`} rel="noopener noreferrer" href={t(cta.ctaUrl).__html as string}
+                               className={`${tsi(effectiveTheme, "ctaButtonStyle", i)}`}>
+                                <span dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
                             </a>
-                        </div>))
-                    }
+
+                        ))
+                        }
+                    </div>
                 </div>
                 <div className={`${ts(effectiveTheme, "imageContainerStyle")}`}>
-                    {await imageProvider({url: t(url), alt: alt && t(alt), imageStyle: effectiveTheme.imageStyle})}
+                    {await imageProvider({url: t(url).__html as string, alt: alt && t(alt).__html as string, imageStyle: effectiveTheme.imageStyle})}
                 </div>
             </div>
         </section>

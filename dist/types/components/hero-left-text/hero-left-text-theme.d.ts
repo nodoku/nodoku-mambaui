@@ -16,7 +16,7 @@ export type HeroLeftTextTheme = {
     subTitleStyle?: ThemeStyle;
     paragraphStyle?: ParagraphTheme;
     ctaContainerStyle?: ThemeStyle;
-    ctaStyle?: ThemeStyle;
+    ctaButtonStyle?: ThemeStyle[];
     codeHighlightTheme?: HighlightedCodeTheme;
     listTheme?: ListCompTheme;
 };

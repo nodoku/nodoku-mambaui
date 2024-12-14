@@ -7,6 +7,7 @@ import { HeroLeftTextTheme } from "./components/hero-left-text/hero-left-text-th
 import { HeroRightTextTheme } from "./components/hero-right-text/hero-right-text-theme";
 import { FaqOneQuestionTheme } from "./components/faq/faq-one-question-theme";
 import { FaqHeaderTheme } from "./components/faq/faq-header-theme";
+import { FooterFourTheme } from "./components/footer-four/footer-four-theme";
 export declare namespace NodokuMambaUi {
     function Card(props: NdSkinComponentProps<CardTheme, void>): Promise<JSX.Element>;
     function HeroOne(props: NdSkinComponentProps<HeroOneTheme, void>): Promise<JSX.Element>;
@@ -15,4 +16,5 @@ export declare namespace NodokuMambaUi {
     function HeroRightText(props: NdSkinComponentProps<HeroRightTextTheme, void>): Promise<JSX.Element>;
     function FaqOneQuestion(props: NdSkinComponentProps<FaqOneQuestionTheme, void>): Promise<JSX.Element>;
     function FaqHeader(props: NdSkinComponentProps<FaqHeaderTheme, void>): Promise<JSX.Element>;
+    function FooterFour(props: NdSkinComponentProps<FooterFourTheme, void>): Promise<JSX.Element>;
 }

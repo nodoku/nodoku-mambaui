@@ -4,7 +4,7 @@ import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
 import {NodokuComponents} from "nodoku-components";
 import Paragraphs = NodokuComponents.Paragraphs;
 import Backgrounds = NodokuComponents.Backgrounds;
-import {ts} from "nodoku-core";
+import {ts, tsi} from "nodoku-core";
 import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
@@ -21,7 +21,7 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
         theme,
         themes,
         lng,
-        i18nextProvider,
+        i18nextTrustedHtmlProvider,
         defaultThemeName
     } = props;
 
@@ -35,7 +35,7 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
 
     const block: NdContentBlock = content[0];
 
-    const {t} = await i18nextProvider(lng);
+    const {t} = await i18nextTrustedHtmlProvider(lng);
 
     // console.log("effective theme", effectiveTheme)
 
@@ -46,15 +46,14 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
         codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
         listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
         defaultThemeName: defaultThemeName,
-        i18nextProvider: i18nextProvider
+        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
     });
 
     const backgrounds = await Backgrounds({
         lng: lng,
         defaultThemeName: defaultThemeName,
         bgColorStyle: effectiveTheme.bgColorStyle,
-        bgImageStyle: effectiveTheme.bgImageStyle,
-        i18nextProvider: i18nextProvider
+        bgImageStyle: effectiveTheme.bgImageStyle
     });
 
     return (
@@ -64,24 +63,25 @@ export async function HeroTwoImpl(props: NdSkinComponentProps<HeroTwoTheme, void
                 <div className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
                     {block.title &&
                         <h1 className={`${ts(effectiveTheme, "titleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.title)}} />
+                            dangerouslySetInnerHTML={t(block.title)} />
                     }
 
                     {block.subTitle &&
                         <h3 className={`${ts(effectiveTheme, "subTitleStyle")}`}
-                            dangerouslySetInnerHTML={{__html: t(block.subTitle)}} />
+                            dangerouslySetInnerHTML={t(block.subTitle)} />
                     }
 
                     {paragraphs}
 
+                    <div className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
                     {block.callToActions.map((cta: NdCallToAction, i) => (
-                        <div key={`hero-right-text-${rowIndex}-${componentIndex}-cta-${i}`} className={`${ts(effectiveTheme, "footerContainerStyle")}`}>
-                            <a href={t(cta.ctaUrl)}>
-                                <button type={"button"} className={`${ts(effectiveTheme, "footerStyle")}`}
-                                        dangerouslySetInnerHTML={{__html: t(cta.ctaTitle || cta.ctaUrl)}}/>
+
+                            <a key={`hero-right-text-${rowIndex}-${componentIndex}-cta-${i}`} href={t(cta.ctaUrl).__html as string}>
+                                <button type={"button"} className={`${tsi(effectiveTheme, "ctaButtonStyle", i)}`}
+                                        dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
                             </a>
-                        </div>))
-                    }
+                    ))}
+                    </div>
 
                 </div>
             </div>

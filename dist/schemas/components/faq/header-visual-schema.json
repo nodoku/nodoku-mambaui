@@ -20,15 +20,6 @@
     "subTitleStyle": {
       "$ref": "../../../node_modules/nodoku-core/schemas/skin-common-schema.json#/definitions/ThemeStyle"
     },
-    "paragraphStyle": {
-      "$ref": "../../../node_modules/nodoku-components/schemas/components/paragraphs/visual-schema.json"
-    },
-    "codeHighlightTheme": {
-      "$ref": "../../../node_modules/nodoku-components/schemas/components/highlighted-code/visual-schema.json"
-    },
-    "listTheme": {
-      "$ref": "../../../node_modules/nodoku-components/schemas/components/list-comp/visual-schema.json"
-    },
     "additionalProperties": false
   },
   "additionalProperties": false
