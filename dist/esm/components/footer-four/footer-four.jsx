@@ -88,6 +88,7 @@ export function FooterFourImpl(props) {
                         </div>
                         <span className={ts(effectiveTheme, "brandNameStyle")} dangerouslySetInnerHTML={companyNameText}/>
                     </a>
+                    {(brand === null || brand === void 0 ? void 0 : brand.subTitle) && <h2 className={ts(effectiveTheme, "subTitleStyle")} dangerouslySetInnerHTML={t(brand === null || brand === void 0 ? void 0 : brand.subTitle)}></h2>}
                 </div>
                 <div className={ts(effectiveTheme, "contentContainerStyle")}>
 

@@ -77,6 +77,7 @@ export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme
                         </div>
                         <span className={ts(effectiveTheme, "brandNameStyle")} dangerouslySetInnerHTML={companyNameText} />
                     </a>
+                    {brand?.subTitle && <h2 className={ts(effectiveTheme, "subTitleStyle")} dangerouslySetInnerHTML={t(brand?.subTitle)}></h2>}
                 </div>
                 <div className={ts(effectiveTheme, "contentContainerStyle")}>
 
