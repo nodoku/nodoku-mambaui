@@ -34,11 +34,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+import { defaultTheme } from "./footer-four-theme";
 import { mergeTheme } from "nodoku-core";
 import { ts } from "nodoku-core";
-import { defaultTheme } from "./footer-four-theme";
 import { NdTranslatableText } from "nodoku-core";
 import { extractValueFromText } from "nodoku-core";
+import { NdList } from "nodoku-core";
 export function FooterFourImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, brand, sections, _i, content_1, b, t, brandLogo, copyrightNotice, companyName, companyNameText, copyrightNoticeText;
@@ -58,9 +59,8 @@ export function FooterFourImpl(props) {
                         if (((_a = b.title) === null || _a === void 0 ? void 0 : _a.text) && b.title.text === "{Brand}") {
                             brand = b;
                         }
-                        else {
-                            sections.push(b);
-                        }
+                        b.paragraphs.filter(function (p) { return p instanceof NdList; })
+                            .forEach(function (p) { return p.items.forEach(function (i) { return sections.push(i); }); });
                     }
                     return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
@@ -92,19 +92,21 @@ export function FooterFourImpl(props) {
                 </div>
                 <div className={ts(effectiveTheme, "contentContainerStyle")}>
 
-                    {sections.map(function (contentBlock, ib) {
+                    {sections.map(function (oneListItem, ib) {
                             return (<div key={"footer-content-block-".concat(ib)} className="space-y-3">
 
-                                {contentBlock.title &&
-                                    <h3 className={ts(effectiveTheme, "sectionTitleStyle")} dangerouslySetInnerHTML={t(contentBlock.title)}/>}
-                                <ul className="space-y-1">
-                                    {contentBlock.callToActions.map(function (cta, i) {
-                                    return (<li key={"footer-content-block-".concat(ib, "-cta-").concat(i)}>
-                                                <a rel="noopener noreferrer" href={t(cta.ctaUrl).__html} dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
-                                            </li>);
-                                })}
+                                {oneListItem.text && oneListItem.text instanceof NdTranslatableText &&
+                                    <h3 className={ts(effectiveTheme, "sectionTitleStyle")} dangerouslySetInnerHTML={t(oneListItem.text)}/>}
+                                {oneListItem.subList && oneListItem.subList instanceof NdList &&
+                                    <ul className="space-y-1">
+                                        {oneListItem.subList.items.map(function (item, i) {
+                                            var link = item.text;
+                                            return (<li key={"footer-content-block-".concat(ib, "-cta-").concat(i)}>
+                                                    <a rel="noopener noreferrer" href={t(link.url).__html} dangerouslySetInnerHTML={t(link.urlText || link.url)}/>
+                                                </li>);
+                                        })}
 
-                                </ul>
+                                    </ul>}
                             </div>);
                         })}
                 </div>

@@ -1,18 +1,13 @@
 import {JSX} from "react";
 import {FooterFourTheme} from "./footer-four-theme";
-import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
-import {NodokuComponents} from "nodoku-components";
-import Paragraphs = NodokuComponents.Paragraphs;
-import Backgrounds = NodokuComponents.Backgrounds;
-import {ts, tsi} from "nodoku-core";
-import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
-import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
-import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
-import {NdCallToAction} from "nodoku-core";
 import {defaultTheme} from "./footer-four-theme";
+import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
+import {ts} from "nodoku-core";
 import {NdTranslatableText} from "nodoku-core";
-import {NdContentImage} from "nodoku-core";
 import {extractValueFromText} from "nodoku-core";
+import {NdList} from "nodoku-core";
+import {NdListItem} from "nodoku-core";
+import {NdLink} from "nodoku-core";
 
 
 export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme, void>): Promise<JSX.Element> {
@@ -38,13 +33,13 @@ export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme
     }
 
     let brand: NdContentBlock | undefined = undefined;
-    const sections: NdContentBlock[] = [];
+    const sections: NdListItem[] = [];
     for (const b of content) {
         if (b.title?.text && b.title.text === "{Brand}") {
             brand = b;
-        } else {
-            sections.push(b)
         }
+        b.paragraphs.filter(p => p instanceof NdList)
+            .forEach(p => p.items.forEach(i => sections.push(i)))
     }
 
     const {t} = await i18nextTrustedHtmlProvider(lng);
@@ -81,22 +76,25 @@ export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme
                 </div>
                 <div className={ts(effectiveTheme, "contentContainerStyle")}>
 
-                    {sections.map((contentBlock: NdContentBlock, ib) => {
+                    {sections.map((oneListItem: NdListItem, ib) => {
                         return (
                             <div key={`footer-content-block-${ib}`} className="space-y-3">
 
-                                {contentBlock.title &&
-                                    <h3 className={ts(effectiveTheme, "sectionTitleStyle")} dangerouslySetInnerHTML={t(contentBlock.title)}/>}
-                                <ul className="space-y-1">
-                                    {contentBlock.callToActions.map((cta: NdCallToAction, i ) => {
-                                        return (
-                                            <li key={`footer-content-block-${ib}-cta-${i}`}>
-                                                <a rel="noopener noreferrer" href={t(cta.ctaUrl).__html as string} dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)} />
-                                            </li>
-                                        )
-                                    })}
+                                {oneListItem.text && oneListItem.text instanceof NdTranslatableText &&
+                                    <h3 className={ts(effectiveTheme, "sectionTitleStyle")} dangerouslySetInnerHTML={t(oneListItem.text)}/>}
+                                {oneListItem.subList && oneListItem.subList instanceof NdList &&
+                                    <ul className="space-y-1">
+                                        {oneListItem.subList.items.map((item: NdListItem, i ) => {
+                                            const link = item.text as NdLink
+                                            return (
+                                                <li key={`footer-content-block-${ib}-cta-${i}`}>
+                                                    <a rel="noopener noreferrer" href={t(link.url).__html as string} dangerouslySetInnerHTML={t(link.urlText || link.url)} />
+                                                </li>
+                                            )
+                                        })}
 
-                                </ul>
+                                    </ul>
+                                }
                             </div>
                         )
                     })}
