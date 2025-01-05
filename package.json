@@ -1,6 +1,6 @@
 {
   "name": "nodoku-mambaui",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "a collection of visual components, based Mamba UI components from mambaui.com, for Nodoku static site generator",
   "exports": {
     ".": {
@@ -27,6 +27,6 @@
     "typescript": "^5"
   },
   "scripts": {
-    "dist": "shx rm -rf dist && tsc && shx cp -r schemas ./dist && shx cp nodoku.manifest.json dist && shx cp package-dist.json ./dist/package.json && shx cp -r ./docs ./dist && shx cp ./README.md ./dist"
+    "dist": "shx rm -rf dist && tsc && tsc --project tsconfig.tailwind.json && shx cp -r schemas ./dist && shx cp nodoku.manifest.json dist && shx cp package-dist.json ./dist/package.json && shx cp -r ./docs ./dist && shx cp ./README.md ./dist"
   }
 }
