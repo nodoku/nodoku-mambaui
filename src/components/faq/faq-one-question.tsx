@@ -1,25 +1,27 @@
 import {JSX} from "react";
 import {mergeTheme, NdContentBlock, NdSkinComponentProps} from "nodoku-core";
-import {FaqOneQuestionTheme} from "./faq-one-question-theme";
-import {NodokuComponents} from "nodoku-components";
-import Paragraphs = NodokuComponents.Paragraphs;
 import {ts} from "nodoku-core";
-import paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
-import highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
-import listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
+import {FaqOneQuestionTheme} from "./faq-one-question-theme";
 import {defaultTheme} from "./faq-one-question-theme";
+import {NodokuComponents} from "nodoku-components";
+import Typography = NodokuComponents.Typography;
+import TypographyTheme = NodokuComponents.TypographyTheme;
 
 
 export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuestionTheme, void>): Promise<JSX.Element> {
 
     const {
+        rowIndex,
         componentIndex,
         content,
         theme,
         themes,
         lng,
         i18nextTrustedHtmlProvider,
-        defaultThemeName
+        defaultThemeName,
+        imageProvider,
+        clientSideComponentProvider,
+
     } = props;
 
     // console.log("content card ", JSON.stringify(content));
@@ -36,24 +38,35 @@ export async function FaqOneQuestionImpl(props: NdSkinComponentProps<FaqOneQuest
 
     // console.log("effective theme", effectiveTheme)
 
+    const title = block.title;
+    // block.title = undefined
+    block.htmlElements = block.htmlElements.slice(1)
+
+    const typoProps: NdSkinComponentProps<TypographyTheme, void> = {
+        rowIndex,
+        componentIndex,
+        content: [block],
+        defaultThemeName,
+        theme: effectiveTheme.typographyTheme,
+        themes: [],
+        options: undefined,
+        lng,
+        imageProvider,
+        i18nextTrustedHtmlProvider,
+        clientSideComponentProvider
+    }
+
     return (
         <section className={`relative ${ts(effectiveTheme, "containerStyle")}`}>
             <div className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
                 <details open={false}>
-                    {block.title &&
+                    {title &&
                         <summary className={`${ts(effectiveTheme, "titleStyle")}`}
-                             dangerouslySetInnerHTML={t(block.title)} />
+                             dangerouslySetInnerHTML={t(title)} />
                     }
 
-                    {await Paragraphs({
-                        lng: lng,
-                        blockParagraphs: block.paragraphs,
-                        paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
-                        codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
-                        listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
-                        defaultThemeName: defaultThemeName,
-                        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
-                    })}
+                    {await Typography(typoProps)}
+
                 </details>
             </div>
         </section>

@@ -40,6 +40,7 @@ import { ts } from "nodoku-core";
 import { NdTranslatableText } from "nodoku-core";
 import { extractValueFromText } from "nodoku-core";
 import { NdList } from "nodoku-core";
+// import {NdLink} from "nodoku-core";
 export function FooterFourImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, brand, sections, _i, content_1, b, t, brandLogo, copyrightNotice, companyName, companyNameText, copyrightNoticeText;
@@ -101,9 +102,7 @@ export function FooterFourImpl(props) {
                                     <ul className="space-y-1">
                                         {oneListItem.subList.items.map(function (item, i) {
                                             var link = item.text;
-                                            return (<li key={"footer-content-block-".concat(ib, "-cta-").concat(i)}>
-                                                    <a rel="noopener noreferrer" href={t(link.url).__html} dangerouslySetInnerHTML={t(link.urlText || link.url)}/>
-                                                </li>);
+                                            return <li key={"footer-content-block-".concat(ib, "-cta-").concat(i)} dangerouslySetInnerHTML={t(link)}/>;
                                         })}
 
                                     </ul>}

@@ -3,6 +3,7 @@ import {NodokuComponents} from "nodoku-components";
 import ListCompTheme = NodokuComponents.ListCompTheme;
 import HighlightedCodeTheme = NodokuComponents.HighlightedCodeTheme;
 import ParagraphTheme = NodokuComponents.ParagraphTheme;
+import TypographyTheme = NodokuComponents.TypographyTheme;
 
 export type FaqOneQuestionTheme = {
 
@@ -11,12 +12,14 @@ export type FaqOneQuestionTheme = {
     bgColorStyle?: ThemeStyle;
     containerStyle?: ThemeStyle;
     innerContainerStyle?: ThemeStyle;
-    imageContainerStyle?: ThemeStyle;
     titleStyle?: ThemeStyle;
-    subTitleStyle?: ThemeStyle;
-    paragraphStyle?: ParagraphTheme;
-    codeHighlightTheme?: HighlightedCodeTheme;
-    listTheme?: ListCompTheme;
+    typographyTheme?: TypographyTheme
+
+    // imageContainerStyle?: ThemeStyle;
+    // subTitleStyle?: ThemeStyle;
+    // paragraphStyle?: ParagraphTheme;
+    // codeHighlightTheme?: HighlightedCodeTheme;
+    // listTheme?: ListCompTheme;
 
 }
 

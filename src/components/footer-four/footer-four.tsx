@@ -7,7 +7,7 @@ import {NdTranslatableText} from "nodoku-core";
 import {extractValueFromText} from "nodoku-core";
 import {NdList} from "nodoku-core";
 import {NdListItem} from "nodoku-core";
-import {NdLink} from "nodoku-core";
+// import {NdLink} from "nodoku-core";
 
 
 export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme, void>): Promise<JSX.Element> {
@@ -85,12 +85,8 @@ export async function FooterFourImpl(props: NdSkinComponentProps<FooterFourTheme
                                 {oneListItem.subList && oneListItem.subList instanceof NdList &&
                                     <ul className="space-y-1">
                                         {oneListItem.subList.items.map((item: NdListItem, i ) => {
-                                            const link = item.text as NdLink
-                                            return (
-                                                <li key={`footer-content-block-${ib}-cta-${i}`}>
-                                                    <a rel="noopener noreferrer" href={t(link.url).__html as string} dangerouslySetInnerHTML={t(link.urlText || link.url)} />
-                                                </li>
-                                            )
+                                            const link = item.text as NdTranslatableText
+                                            return <li key={`footer-content-block-${ib}-cta-${i}`} dangerouslySetInnerHTML={t(link)}/>
                                         })}
 
                                     </ul>

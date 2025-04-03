@@ -35,20 +35,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { mergeTheme } from "nodoku-core";
-import { NodokuComponents } from "nodoku-components";
-var Paragraphs = NodokuComponents.Paragraphs;
 import { ts } from "nodoku-core";
-var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
-var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
-var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import { defaultTheme } from "./faq-one-question-theme";
+import { NodokuComponents } from "nodoku-components";
+var Typography = NodokuComponents.Typography;
 export function FaqOneQuestionImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
-        var componentIndex, content, theme, themes, lng, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, block, t;
+        var rowIndex, componentIndex, content, theme, themes, lng, i18nextTrustedHtmlProvider, defaultThemeName, imageProvider, clientSideComponentProvider, effectiveTheme, block, t, title, typoProps;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider, defaultThemeName = props.defaultThemeName;
+                    rowIndex = props.rowIndex, componentIndex = props.componentIndex, content = props.content, theme = props.theme, themes = props.themes, lng = props.lng, i18nextTrustedHtmlProvider = props.i18nextTrustedHtmlProvider, defaultThemeName = props.defaultThemeName, imageProvider = props.imageProvider, clientSideComponentProvider = props.clientSideComponentProvider;
                     effectiveTheme = mergeTheme(theme, defaultTheme);
                     if (themes.length > 0) {
                         effectiveTheme = mergeTheme(themes[componentIndex % themes.length], effectiveTheme);
@@ -57,24 +54,31 @@ export function FaqOneQuestionImpl(props) {
                     return [4 /*yield*/, i18nextTrustedHtmlProvider(lng)];
                 case 1:
                     t = (_a.sent()).t;
-                    return [4 /*yield*/, Paragraphs({
-                            lng: lng,
-                            blockParagraphs: block.paragraphs,
-                            paragraphTheme: effectiveTheme.paragraphStyle || paragraphDefaultTheme,
-                            codeHighlightTheme: effectiveTheme.codeHighlightTheme || highlightedCodeDefaultTheme,
-                            listTheme: effectiveTheme.listTheme || listCompDefaultTheme,
-                            defaultThemeName: defaultThemeName,
-                            i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider
-                        })];
-                case 2: 
-                // console.log("effective theme", effectiveTheme)
-                return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
+                    title = block.title;
+                    // block.title = undefined
+                    block.htmlElements = block.htmlElements.slice(1);
+                    typoProps = {
+                        rowIndex: rowIndex,
+                        componentIndex: componentIndex,
+                        content: [block],
+                        defaultThemeName: defaultThemeName,
+                        theme: effectiveTheme.typographyTheme,
+                        themes: [],
+                        options: undefined,
+                        lng: lng,
+                        imageProvider: imageProvider,
+                        i18nextTrustedHtmlProvider: i18nextTrustedHtmlProvider,
+                        clientSideComponentProvider: clientSideComponentProvider
+                    };
+                    return [4 /*yield*/, Typography(typoProps)];
+                case 2: return [2 /*return*/, (<section className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
             <div className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
                 <details open={false}>
-                    {block.title &&
-                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
+                    {title &&
+                            <summary className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(title)}/>}
 
                     {_a.sent()}
+
                 </details>
             </div>
         </section>)];
