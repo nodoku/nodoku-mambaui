@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+    return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -37,12 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { mergeTheme } from "nodoku-core";
 import { NodokuComponents } from "nodoku-components";
 var Paragraphs = NodokuComponents.Paragraphs;
-import { ts } from "nodoku-core";
 var paragraphDefaultTheme = NodokuComponents.paragraphDefaultTheme;
 var highlightedCodeDefaultTheme = NodokuComponents.highlightedCodeDefaultTheme;
 var listCompDefaultTheme = NodokuComponents.listCompDefaultTheme;
 import { defaultTheme } from "./card-theme";
-import { tsi } from "nodoku-core";
 export function CardImpl(props) {
     return __awaiter(this, void 0, void 0, function () {
         var rowIndex, componentIndex, content, theme, themes, lng, imageProvider, i18nextTrustedHtmlProvider, defaultThemeName, effectiveTheme, block, t, _a, url, alt, paragraphs;
@@ -70,30 +68,41 @@ export function CardImpl(props) {
                         })];
                 case 2:
                     paragraphs = _b.sent();
-                    return [4 /*yield*/, imageProvider({ url: t(url).__html, alt: alt && t(alt).__html, imageStyle: effectiveTheme.imageStyle })];
-                case 3: return [2 /*return*/, (<div key={"card-".concat(rowIndex, "-").concat(componentIndex)} className={"relative ".concat(ts(effectiveTheme, "containerStyle"))}>
-
-            {_b.sent()}
-
-            <div key={"card-".concat(rowIndex, "-").concat(componentIndex, "-innerContainer")} className={"".concat(ts(effectiveTheme, "innerContainerStyle"))}>
-                <div className="space-y-2">
-                    {block.title &&
-                            <h2 className={"".concat(ts(effectiveTheme, "titleStyle"))} dangerouslySetInnerHTML={t(block.title)}/>}
-                    {block.subTitle &&
-                            <h2 className={"".concat(ts(effectiveTheme, "subTitleStyle"))} dangerouslySetInnerHTML={t(block.subTitle)}/>}
-
-                    {paragraphs}
-
-                </div>
-                <div key={"card-".concat(rowIndex, "-").concat(componentIndex, "-cta-container")} className={"".concat(ts(effectiveTheme, "ctaContainerStyle"))}>
-                    {block.callToActions.map(function (cta, i) { return (<a key={"card-".concat(rowIndex, "-").concat(componentIndex, "-cta-").concat(i)} href={t(cta.ctaUrl).__html} className={"flex flex-grow"}>
-                            <button type="button" className={"".concat(tsi(effectiveTheme, "ctaButtonStyle", i))}>
-                                <span dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
-                            </button>
-                        </a>); })}
-                </div>
-            </div>
-        </div>)];
+                    console.log("in mambaui rendering blocks: \n", block);
+                    return [2 /*return*/, <>mambaui-card</>
+                        // return (
+                        //     <div key={`card-${rowIndex}-${componentIndex}`} className={`relative ${ts(effectiveTheme, "containerStyle")}`}>
+                        //
+                        //         {await imageProvider({url: t(url).__html as string, alt: alt && t(alt).__html as string, imageStyle: effectiveTheme.imageStyle})}
+                        //
+                        //         <div key={`card-${rowIndex}-${componentIndex}-innerContainer`}
+                        //              className={`${ts(effectiveTheme, "innerContainerStyle")}`}>
+                        //             <div className="space-y-2">
+                        //                 {block.title &&
+                        //                     <h2 className={`${ts(effectiveTheme, "titleStyle")}`}
+                        //                         dangerouslySetInnerHTML={t(block.title)}/>
+                        //                 }
+                        //                 {block.subTitle &&
+                        //                     <h2 className={`${ts(effectiveTheme, "subTitleStyle")}`}
+                        //                         dangerouslySetInnerHTML={t(block.subTitle)}/>
+                        //                 }
+                        //
+                        //                 {/*{paragraphs}*/}
+                        //
+                        //             </div>
+                        //             <div key={`card-${rowIndex}-${componentIndex}-cta-container`} className={`${ts(effectiveTheme, "ctaContainerStyle")}`}>
+                        //                 {block.callToActions.map((cta: NdCallToAction, i) => (
+                        //                     <a key={`card-${rowIndex}-${componentIndex}-cta-${i}`} href={t(cta.ctaUrl).__html as string} className={"flex flex-grow"}>
+                        //                         <button type="button" className={`${tsi(effectiveTheme, "ctaButtonStyle", i)}`}>
+                        //                             <span dangerouslySetInnerHTML={t(cta.ctaTitle || cta.ctaUrl)}/>
+                        //                         </button>
+                        //                     </a>
+                        //                 ))}
+                        //             </div>
+                        //         </div>
+                        //     </div>
+                        // )
+                    ];
             }
         });
     });
